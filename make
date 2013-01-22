@@ -2,7 +2,7 @@
 
 usage() {
 
-    echo "Usage: <clean> filename.tex"
+    echo "Usage: [<clean>] filename.tex"
     exit 0
 }
 
