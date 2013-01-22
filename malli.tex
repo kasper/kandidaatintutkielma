@@ -1,0 +1,74 @@
+\documentclass[finnish]{tktltiki2}
+
+% --- Packages ---
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsfonts,amsmath,amssymb,amsthm,booktabs,color,enumitem,graphicx}
+\usepackage[pdftex,hidelinks]{hyperref}
+
+% Automatically set the PDF metadata fields
+\makeatletter
+\AtBeginDocument{\hypersetup{pdftitle = {\@title}, pdfauthor = {\@author}}}
+\makeatother
+
+% --- Language ---
+
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{finnish}
+
+% Add bibliography to the table of contents
+\usepackage[nottoc,numbib]{tocbibind}
+
+% tocbibind renames the bibliography, use the following to change it back
+\settocbibname{Lähteet}
+
+% --- Theorem environment definitions ---
+
+\newtheorem{lau}{Lause}
+\newtheorem{lem}[lau]{Lemma}
+\newtheorem{kor}[lau]{Korollaari}
+
+\theoremstyle{definition}
+\newtheorem{maar}[lau]{Määritelmä}
+\newtheorem{ong}{Ongelma}
+\newtheorem{alg}[lau]{Algoritmi}
+\newtheorem{esim}[lau]{Esimerkki}
+
+\theoremstyle{remark}
+\newtheorem*{huom}{Huomautus}
+
+% --- tktltiki2 options ---
+
+\title{Otsikko}
+\author{Kasper Hirvikoski}
+\date{\today}
+\level{Referaatti}
+\abstract{Tiivistelmä.}
+
+\keywords{avainsana 1, avainsana 2, avainsana 3}
+\classification{}
+
+\begin{document}
+
+% --- Front matter ---
+
+\maketitle
+\makeabstract
+
+\tableofcontents
+\newpage
+
+% --- Main matter ---
+
+\section{Otsikko}
+
+Esimerkkilause ja lähdeviite~\cite{NaB05}.
+
+% --- Back matter ---
+
+\bibliographystyle{babalpha}
+\bibliography{lahteet}
+
+\end{document}
