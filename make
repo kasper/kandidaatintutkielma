@@ -42,7 +42,7 @@ EXTENSION="${FILE##*.}"
 
 if [ "$EXTENSION" != "tex" ]; then
     echo "Expecting a .tex file."
-    exit
+    exit 0
 fi
 
 file_exists $FILE
