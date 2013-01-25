@@ -2,7 +2,7 @@
 
 usage() {
 
-    echo "Usage: [<clean>] filename.tex"
+    echo 'Usage: [<clean>] filename.tex'
     exit 0
 }
 
@@ -22,14 +22,27 @@ file_exists() {
     fi
 }
 
+tex_file() {
+
+    FILE=$1
+    BASENAME=$(basename "$FILE")
+    EXTENSION="${BASENAME##*.}"
+
+    if [ "$EXTENSION" != 'tex' ]; then
+        echo "Expecting a .tex file."
+        exit 0
+    fi
+}
+
 argument_exists $1
 
-if [ "$1" == "clean" ]; then
+if [ "$1" == 'clean' ]; then
 
     argument_exists $2
     file_exists $2
+    tex_file $2
 
-    DIRNAME=$(dirname $2)
+    DIRNAME=$(dirname "$2")
     
     rm -f $DIRNAME/*.aux $DIRNAME/*.bbl $DIRNAME/*.blg $DIRNAME/*.log $DIRNAME/*.out $DIRNAME/*.pdf $DIRNAME/*.toc
     
@@ -37,17 +50,15 @@ if [ "$1" == "clean" ]; then
 fi
 
 FILE=$1
-FILENAME="${FILE%.*}"
-EXTENSION="${FILE##*.}"
-
-if [ "$EXTENSION" != "tex" ]; then
-    echo "Expecting a .tex file."
-    exit 0
-fi
+DIRNAME=$(dirname "$FILE")
+BASENAME=$(basename "$FILE")
+FILENAME="${BASENAME%.*}"
 
 file_exists $FILE
+tex_file $FILE
 
-pdflatex $FILE
+cd $DIRNAME
+pdflatex $BASENAME
 bibtex $FILENAME
-pdflatex $FILE
-pdflatex $FILE
+pdflatex $BASENAME
+pdflatex $BASENAME
