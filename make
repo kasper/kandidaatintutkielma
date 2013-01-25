@@ -44,7 +44,8 @@ if [ "$1" == 'clean' ]; then
 
     DIRNAME=$(dirname "$2")
     
-    rm -f $DIRNAME/*.aux $DIRNAME/*.bbl $DIRNAME/*.blg $DIRNAME/*.log $DIRNAME/*.out $DIRNAME/*.pdf $DIRNAME/*.toc
+    cd $DIRNAME
+    rm -f *.aux *.bbl *.blg *.log *.out *.pdf *.toc
     
     exit 0
 fi
