@@ -38,14 +38,17 @@ argument_exists $1
 
 if [ "$1" == 'clean' ]; then
 
-    argument_exists $2
-    file_exists $2
-    tex_file $2
+    FILE=$2
+    DIRNAME=$(dirname "$FILE")
+    BASENAME=$(basename "$FILE")
+    FILENAME="${BASENAME%.*}"
 
-    DIRNAME=$(dirname "$2")
+    argument_exists $FILE
+    file_exists $FILE
+    tex_file $FILE
     
     cd $DIRNAME
-    rm -f *.aux *.bbl *.blg *.log *.out *.pdf *.toc
+    rm -f $FILENAME.aux $FILENAME.bbl $FILENAME.blg $FILENAME.log $FILENAME.out $FILENAME.pdf $FILENAME.toc
     
     exit 0
 fi
