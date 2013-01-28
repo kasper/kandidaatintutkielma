@@ -44,7 +44,7 @@
 \title{Suhteellinen koodikirnu ohjelmiston virheherkkyyden\\analysoimisessa}
 \author{Kasper Hirvikoski}
 \date{\today}
-\level{Referaatti - Luonnos}
+\level{Referaatti}
 
 \begin{document}
 
@@ -59,19 +59,69 @@
 
 \section{Johdanto}
 
-Ohjelmistot kehittyvät elinkaarensa aikana muun muassa uusien vaatimusten, optimisaatioiden, tietoturvaparannusten ja virhekorjausten johdosta. Nagappan ja Ball esittävät artikkelissaan "Use of relative code churn measures to predict system defect density"~\cite{NB05} suhteellisen koodikirnu-tekniikan järjestelmän aikaiseen virhetiheyden ennakoimiseen. Koodikirnu mittaa ja ilmaisee määrällisesti ohjelmiston komponentteihin kohdistuvia muutoksia tietyn ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia koodikirnu-mittayksiköitä, jotka he rinnastavat muihin muuttujiin kuten komponenttien kokoon tai ajalliseen luonteeseen. Käyttäen apuna tilastollisia regressiomalleja, he osoittavat suhteellisten koodikirnu-mittojen kyvyn havaita järjestelmän virhetiheyden paremmin kuin ehdottomien mittojen. Väittämien tueksi he suorittivat tapaustutkimuksen, jonka kohteena oli Windows Server 2003. Samalla he osoittavat, että relatiivinen koodikirnu pystyy paikallistamaan virheherkät komponentit 89 \% tarkkuudella.
+Ohjelmistot kehittyvät elinkaarensa aikana muun muassa uusien vaatimusten, optimisaatioiden, tietoturvaparannusten ja virhekorjausten johdosta. Nagappan ja Ball esittävät artikkelissaan "Use of relative code churn measures to predict system defect density"~\cite{NB05} suhteellisen koodikirnu-tekniikan järjestelmän virhetiheyden ennakoimiseen. Koodikirnu (code churn) mittaa ja ilmaisee määrällisesti ohjelmiston komponentteihin kohdistuvia muutoksia tietyn ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia koodikirnu-mittayksiköitä, jotka he rinnastavat muihin muuttujiin kuten komponenttien kokoon tai muokkauksen ajalliseen pituuteen. Käyttäen apuna tilastollisia regressiomalleja, he osoittavat suhteellisten koodikirnu-mittojen kyvyn havaita järjestelmän virhetiheyden paremmin kuin ehdottomien mittojen. Väittämien tueksi he suorittivat tapaustutkimuksen, jonka kohteena oli Windows Server 2003. Samalla he osoittavat, että relatiivinen koodikirnu pystyy paikallistamaan virheherkät komponentit 89 \% tarkkuudella.
 
-\section{Ohjelmiston laadun arviointi}
+\section{Ohjelmiston laadun arviointi koodikirnulla}
 
-Kehitysvaiheessa olevan ohjelmiston laadun varmistaminen on hankalaa. Ohjelmiston testaamisen ja käytännössä havaittujen virheiden välillä on usein suuri kuilu. Niiden määrää ei pystytä laskemaan luotettavasti ennen kuin tuote on valmis ja julkaistu asiakkaalle. Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen kehityksen lopussa on usein erittäin kallista. On siis selvää, että laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää kehitystyötä suuresti.
+Kehitysvaiheessa olevan ohjelmiston laadun varmistaminen on hankalaa. Ohjelmiston testaamisen ja käytännössä havaittujen virheiden välillä on usein suuri kuilu. Virheiden määrää ei yleensä pystytä laskemaan luotettavasti ennen kuin tuote on valmis ja julkaistu asiakkaalle. Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen kehityksen lopussa on usein erittäin kallista. On siis selvää, että laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää kehitystyötä suuresti.
 
-\section{Ehdotuksena koodikirnu}
-
-Nagappan ja Ball esittävät ohjelmistojen virhetiheyden arvioimiseen ratkaisuksi koodikirnua. Se mittaa ohjelmiston komponenttien ohjelmakoodiin kohdistuvien muutosten määrää tietyn ajanjakson aikana. Tämä tieto on helposti saatavilla ohjelmiston versiohallintajärjestelmien muutoshistoriasta. Useimmat versiohallintajärjestelmät vertailevat lähdekooditiedostojen historiaa ja laskevat automaattisesti koodiin kohdistuvia muutoksia. Nämä muutokset ilmentävät kuinka monta riviä tiedostoon on ohjelmoijan toimesta lisätty, poistettu tai muutettu, sitten viimeiseen versiohistoriaan tallennetun version. Nämä muutokset muodostavat koodikirnun pohjan.
+Nagappan ja Ball esittävät ohjelmistojen virhetiheyden arvioimiseen ratkaisuksi koodikirnua. Se mittaa ohjelmiston komponenttien ohjelmakoodiin kohdistuvien muutosten määrää tietyn ajanjakson aikana. Tämä tieto on helposti saatavilla ohjelmiston versiohallintajärjestelmien muutoshistoriasta. Useimmat versiohallintajärjestelmät vertailevat lähdekooditiedostojen historiaa ja laskevat automaattisesti koodiin kohdistuvia muutoksia. Nämä muutokset ilmentävät kuinka monta riviä tiedostoon on ohjelmoijan toimesta lisätty, poistettu tai muutettu sitten viimeiseen versiohistoriaan tallennetun version. Nämä muutokset muodostavat koodikirnun pohjan.
 
 Nagappan ja Ball esittävät joukon suhteellisia koodikirnu-mittoja virhetiheyden havaitsemiseen. Mitat ovat normalisoituja arvoja koodikirnun aikana saaduista tuloksista. Normalisoinnilla niistä on pyritty poistamaan mahdolliset häiriötekijät. Näitä mittoja on muun muassa yhteenlaskettujen koodirivien määrä, tiedostojen muutokset ja tiedostojen määrä. Tutkimukset ovat osoittaneet, että ehdottomat mittayksiköt, kuten pelkkä koodirivien summa, ovat huonoja ohjelmiston laadullisia ennusteita. Yleisesti ottaen ohjelmiston kehitysprosessia mittaavien yksiköiden on havaittu olevan parempia osoittimia vikojen määrästä kuin pelkkää koodia arvioivat tekijät.
 
-Ohjelmistoa kehitettäessä sen komponenttien monimutkaisuus muuttuu. Monimutkaisuuden kasvun suhde on hyvä mittari virheherkkyyden kasvulle. Koodikirnu-mittojen on havaittu korreloivan selvästi ohjelmistoista tehtyjen vikailmoitusten kanssa. Mittojen välillä on havaittavissa myös keskinäisiä suhteita, joita voidaan mallintaa verkkoina. Yksinään kyseiset mittarit eivät välttämättä tuota toivottua tulosta. Näin ollen mittoja verrataan keskenään mahdollisten ristiriitaisuuksien havaitsemiseksi. On kuitenkin selvää, että johtopäätöksiin päätyminen on hankalaa empiirissä tutkimuksissa, koska prosessien taustalla on usein laajoja kontekstiin sidonnaisia tekijöitä.
+Ohjelmistoa kehitettäessä sen komponenttien monimutkaisuus muuttuu. Monimutkaisuuden kasvun suhde on hyvä mittari virheherkkyyden kasvulle. Koodikirnu-mittojen on havaittu korreloivan selvästi ohjelmistoista tehtyjen vikailmoitusten kanssa. Mittojen välillä on havaittavissa myös keskinäisiä suhteita, joita voidaan mallintaa verkkoina. Yksinään kyseiset mittarit eivät välttämättä tuota toivottua tulosta. Näin ollen mittoja verrataan keskenään mahdollisten ristiriitaisuuksien havaitsemiseksi. On kuitenkin selvää, että johtopäätöksiin päätyminen on hankalaa empiirissä tutkimuksissa, koska prosessien taustalla on usein laajoja kontekstisidonnaisia tekijöitä.
+
+\section{Ohjelmiston virheherkkyyteen vaikuttavat mitat}
+
+Nagappan ja Ball listaavat seuraavat ehdottomat mitat koodikirnun pohjaksi. Nämä muodostavat suhteellisille mitoille vertailukohdat ohjelmiston virheherkkyyden analysoimisessa. Ehdottomat mitat eivät yksinään tuota luotettavaa tulosta.
+
+\begin{description}
+    \item[Yhteenlaskettu koodirivien määrä,] ohjelman uuden version ei-kommen\-toitujen koodirivien summa kaikkien lähdekooditiedostojen kesken.
+    \item[Käsiteltyjen koodirivien määrä,] ohjelman lähdekoodiin lisättyjen ja muuttuneiden koodirivien summa edelliseen versioon nähden.
+    \item[Poistettujen koodirivien määrä,] ohjelman lähdekoodista poistettujen koodirivien määrä edelliseen versioon nähden.
+    \item[Tiedostojen määrä,] yhden ohjelman kääntämiseen tarvittavien lähdekoodi\-tiedostojen määrä.
+    \item[Muutosten ajanjakso,] yhteen tiedostoon kohdistuneiden muutosten ajanjakson pituus.
+    \item[Muutosten määrä,] ohjelman tiedostoihin kohdistuneiden muutosten määrä edelliseen versioon nähden.
+    \item[Käsiteltyjen tiedostojen määrä,] ohjelman käsiteltyjen tiedostojen yhteenlaskettu määrä.
+\end{description}
+
+Näiden pohjalta he muodostivat kahdeksan suhteellista koodikirnu-mittaa. Spearmanin järjestyskorrelaatiokertoimen avulla he osoittavat, että nämä mitat johtavat selvästi kohonneeseen määrään virheitä koodirivejä kohden. Spearmanin järjestyskorrelaatiokerroin kuvaa kahden asian keskinäistä vastaavuutta. He havaitsevat analyysissään myös suhteellisten mittojen ylivertaisuuden ehdottomiin nähden. Empiiristen tutkimusten avulla he havaitsivat seuraavien mittojen soveltuvuuden todellisen virhetiheyden ennakoimiseen.
+
+\begin{enumerate}
+    
+    \item {\bf Käsiteltyjen koodirivien määrä / Yhteenlaskettu koodirivien määrä}
+    
+    Suurempi osa käsiteltyjä koodirivejä suhteessa yhteenlaskettuun koodirivien määrän vaikuttaa yksittäisen ohjelman virhetiheyteen.
+    
+    \item {\bf Poistettujen koodirivien määrä / Yhteenlaskettu koodirivien määrä}
+    
+    Suurempi osa poistettuja koodirivejä suhteessa yhteenlaskettuun koodirivien määrään vaikuttaa yksittäisen ohjelman virhetiheyteen. Nagappan ja Ball havaitsivat korkean korrelaation mittojen yksi ja kaksi välillä.
+    
+    \item {\bf Käsiteltyjen tiedostojen määrä / Tiedostojen määrä}
+    
+    Suurempi osa käsiteltyjä tiedostoja suhteessa ohjelman rakentavien tiedostojen lukumäärään lisää todennäköisyyttä, että nämä käsitellyt tiedostot aiheuttavat uusia vikoja. Esimerkiksi meillä on kaksi ohjelmaa A ja B, jotka molemmat koostuvat 20 lähdekooditiedostosta. A sisältää viisi käsiteltyä tiedostoa ja B kaksi. Todennäköisyys sille, että muutokset ohjelmaan A saattavat aiheuttaa uusia vikoja on siis suurempi.
+    
+    \item {\bf Muutosten määrä / Käsiteltyjen tiedostojen määrä}
+    
+    Mitä suurempi määrä yksittäisiin tiedostoihin on kohdistunut muutoksia, sitä suurempi on todennäköisyys sille, että tämä vaikuttaa kyseisistä lähdekooditiedostoista muodostuvan ohjelman virhetiheyteen. Esimerkiksi jos ohjelman A viittä lähdekooditiedostoa on muutettu 20 kertaa ja ohjelman B viittä tiedostoja on muutettu 10 kertaa, todennäköisyys sille, että ohjelma A sisältää uusia vikoja on suurempi.
+
+    \item {\bf Muutosten ajanjakso / Tiedostojen määrä}
+    
+    Mitä pitempi aika on kulutettu muutoksiin, jotka kohdistuvat pieneen joukkoon tiedostoja, sitä suurempi on todennäköisyys sillä, että nämä tiedostot sisältävät monimutkaisia rakenteita. Monimutkaisuus vaikuttaa koodin helppoon ylläpidettävyyteen ja näin ollen lisää näiden tiedostojen aiheuttamaa virhetiheyttä.
+
+    \item {\bf Käsiteltyjen ja poistettujen koodirivien määrä / Muutosten ajanjakso}
+    
+    Käsiteltyjen ja poistettujen koodirivien määrä suhteessa muutosten ajanjaksoon mittaa muutoksen määrää, jota pelkkä muutosten ajanjakso ei yksinään ilmaise. Tätä mittaa tulee verrata mittaan viisi. Oletuksena on, että mitä suurempi määrä käsiteltyjä ja poistettuja koodirivejä on, sitä pitempi muutosten ajanjakson tulisi olla. Tämä taas vaikuttaa ohjelman virhetiheyteen.
+
+    \item {\bf Käsiteltyjen koodirivien määrä / Poistettujen koodirivien\\määrä}
+    
+    Ohjelmiston kehitys ei koostu pelkästään vikojen korjaamisesta vaan myös uuden kehittämisestä. Uusien ominaisuuksien kehittämisessä käsiteltyjen koodirivien määrä on suhteessa suurempi kuin poistettujen koodirivien määrä. Suuri arvo tälle mitalle ilmaisee uutta kehitystä. Saatua arvoa verrataan mittoihin yksi ja kaksi, jotka yksinään eivät ennakoi uutta kehitystä.
+
+    \item {\bf Käsiteltyjen ja poistettujen koodirivien määrä / Muutosten määrä}
+    
+    Mitä suurempi muutoksen laajuus on suhteessa muutosten määrään, sitä suurempi virhetiheys on. Mitta kahdeksan toimii verrokkina mitoille 3-6. Suhteessa mittoihin kolme ja neljä, mitta kahdeksan ilmaisee todellisen muutoksen määrää. Se kompensoi sitä tietoa, että yksittäisiä tiedostoja ei käsitellä toistuvasti pienten korjausten takia. Suhteessa mittoihin viisi ja kuusi, mitä suurempi käsiteltyjen ja poistettujen koodirivien määrä on käsittelyä kohden, sitä pitempi muutosten ajanjakso tarvitaan ja sitä enemmän muutoksia kohdistuu esimerkiksi jokaista viikkoa kohden. Muussa tapauksessa suuri määrä muutoksia on saattanut kohdistua hyvin lyhyeen ajanjaksoon, joka ennakoi suurempaa virhetiheyttä.
+
+\end{enumerate}
 
 \section{Johtopäätökset koodikirnusta}
 
@@ -86,63 +136,11 @@ Nagappan ja Ball havaitsivat, että koodi joka muuttuu useasti ennen julkaisua o
     \item Suhteellinen koodikirnu pystyy havaitsemaan virheherkän ja toimivan komponentin toisistaan.
 \end{enumerate}
 
-\section{Ohjelmiston virheherkkyyteen vaikuttavat mitat}
-
-Nagappan ja Ball listaavat seuraavat ehdottomat mitat koodikirnun pohjaksi. Nämä muodostavat suhteellisille mitoille vertailukohdat ohjelmiston virheherkkyyden analysoimisessa. Ehdottomat mitat eivät yksinään tuota luotettavaa tulosta.
-
-\begin{description}
-    \item[Yhteenlaskettu koodirivien määrä,] ohjelman uuden version ei-kommen\-toitujen koodirivien summa kaikkien lähdekooditiedostojen kesken.
-    \item[Kirnuttujen koodirivien määrä,] ohjelman lähdekoodiin lisättyjen ja muuttuneiden koodirivien summa edelliseen versioon nähden.
-    \item[Poistettujen koodirivien määrä,] ohjelman lähdekoodista poistettujen koodirivien määrä edelliseen versioon nähden.
-    \item[Tiedostojen määrä,] yhden ohjelman kääntämiseen tarvittavien lähdekoodi\-tiedostojen määrä.
-    \item[Kirnuviikot,] yhteen tiedostoon kohdistuneiden muutosten ajanjakson pituus.
-    \item[Kirnumäärä,] ohjelman tiedostoihin kohdistuneiden muutosten määrä edelliseen versioon nähden.
-    \item[Kirnuttujen tiedostojen määrä,] ohjelman kirnuttujen tiedostojen yhteenlaskettu määrä.
-\end{description}
-
-Näiden pohjalta he muodostivat kahdeksan suhteellista koodikirnu-mittaa. Spearmanin järjestyskorrelaatiokertoimen avulla he osoittavat, että nämä mitat johtavat selvästi kohonneeseen määrään virheitä koodirivejä kohden. Spearmanin järjestyskorrelaatiokerroin kuvaa kahden asian keskinäistä vastaavuutta. He havaitsevat analyysissään myös suhteellisten mittojen ylivertaisuuden ehdottomiin nähden. Empiiristen tutkimusten avulla he todistavat seuraavien mittojen soveltuvuuden todellisen virhetiheyden ennakoimiseen.
-
-\begin{enumerate}
-    
-    \item {\bf Kirnuttujen koodirivien määrä / Yhteenlaskettu koodirivien määrä}
-    
-    Suurempi osa kirnuttuja koodirivejä suhteessa yhteenlaskettuun koodirivien määrän vaikuttaa yksittäisen ohjelman virhetiheyteen.
-    
-    \item {\bf Poistettujen koodirivien määrä / Yhteenlaskettu koodirivien määrä}
-    
-    Suurempi osa poistettuja koodirivejä suhteessa yhteenlaskettuun koodirivien määrään vaikuttaa yksittäisen ohjelman virhetiheyteen. Nagappan ja Ball havaitsivat korkean korrelaation mittojen yksi ja kaksi välillä.
-    
-    \item {\bf Kirnuttujen tiedostojen määrä / Tiedostojen määrä}
-    
-    Suurempi osa kirnuttuja tiedostoja suhteessa ohjelman rakentavien tiedostojen lukumäärään lisää todennäköisyyttä, että nämä kirnutut tiedostot aiheuttavat uusia vikoja. Esimerkiksi meillä on kaksi ohjelmaa A ja B, jotka molemmat koostuvat 20 lähdekooditiedostosta. A sisältää viisi kirnuttua tiedostoa ja B kaksi. Todennäköisyys sille, että ohjelma A aiheuttaa uusia vikoja on siis suurempi.
-    
-    \item {\bf Kirnumäärä / Kirnuttujen tiedostojen määrä}
-    
-    Mitä suurempi määrä yksittäisiin tiedostoihin on kohdistunut muutoksia, sitä suurempi on todennäköisyys sille, että tämä vaikuttaa kyseisistä lähdekooditiedostoista muodostuvan ohjelman virhetiheyteen. Esimerkiksi jos ohjelman A viittä lähdekooditiedostoa on muutettu 20 kertaa ja ohjelman B viittä tiedostoja on muutettu 10 kertaa, todennäköisyys sille, että ohjelma A aiheuttaa uusia vikoja on suurempi.
-
-    \item {\bf Kirnuviikot / Tiedostojen määrä}
-    
-    Mitä pitempi aika on kulutettu muutoksiin, jotka kohdistuvat pieneen joukkoon tiedostoja, sitä suurempi on todennäköisyys sillä, että nämä tiedostot sisältävät monimutkaisia rakenteita. Monimutkaisuus vaikuttaa koodin helppoon ylläpidettävyyteen ja näin ollen lisää näiden tiedostojen aiheuttamaa virhetiheyttä.
-
-    \item {\bf Kirnuttujen ja poistettujen koodirivien määrä / Kirnuviikot}
-    
-    Kirnuttujen ja poistettujen koodirivien määrä suhteessa kirnuviikkoihin mittaa muutosten määrää, jota pelkät kirnuviikot eivät yksinään ilmaise. Tätä mittaa tulee verrata mittaan viisi. Oletuksena on, että mitä suurempi määrä kirnuttuja ja poistettuja koodirivejä on, sitä enemmän kirnuviikkoja tulisi olla. Tämä taas vaikuttaa ohjelman virhetiheyteen.
-
-    \item {\bf Kirnuttujen koodirivien määrä / Poistettujen koodirivien\\määrä}
-    
-    Ohjelmiston kehitys ei koostu pelkästään vikojen korjaamisesta vaan myös uuden kehittämisestä. Uusien ominaisuuksien kehittämisessä kirnuttujen koodirivien määrä on suhteessa suurempi kuin poistettujen koodirivien määrä. Suuri arvo tälle mitalle ilmaisee uutta kehitystä. Saatua arvoa verrataan mittoihin yksi ja kaksi, jotka yksinään eivät ennakoi uutta kehitystä.
-
-    \item {\bf Kirnuttujen ja poistettujen koodirivien määrä / Kirnumäärä}
-    
-    Mitä suurempi muutoksen laajuus on suhteessa muutosten määrään, sitä suurempi virhetiheys on. Mitta kahdeksan toimii verrokkina mitoille 3-6. Suhteessa mittoihin kolme ja neljä, mitta kahdeksan ilmaisee todellisen muutoksen määrää. Se kompensoi sitä tietoa, että yksittäisiä tiedostoja ei kirnuta toistuvasti pienten korjausten takia. Suhteessa mittoihin viisi ja kuusi, mitä suurempi kirnuttujen ja poistettujen koodirivien määrä on kirnuamista kohden, sitä enemmän kirnuviikkoja tarvitaan ja sitä enemmän muutoksia kohdistuu jokaista viikkoa kohden. Muussa tapauksessa suuri määrä muutoksia on saattanut kohdistua hyvin lyhyeen ajanjaksoon, joka ennakoi suurempaa virhetiheyttä.
-
-\end{enumerate}
-
 \section{Koodikirnun pätevyyteen vaikuttavia tekijöitä}
 
-Nagappan ja Ball toteavat, että mittausvirheet vaikuttavat arvion luomiseen. Ongelma ei kuitenkaan suuri, sillä versiohallintajärjestelmät hoitavat automaattisesti analyysiin vaadittavat lähtöarvot. Koodikirnu vaatii kuitenkin myös ohjelmiston kehittäjältä hyviä käytäntöjä. Jos kehittäjä on tehnyt useita muutoksia rekisteröimättä niitä versiohallintajärjestelmän historiaan, osa muutoksista jää näkemättä. Kehittäjän toimista riippuen myös kirnuviikkojen määrä voi selvästi pidentyä, jos muutoksia ei hyväksytä tarpeeksi aikaisin versiohallintajärjestelmään. Mittojen vertaaminen keskenään lieventää tästä johtuvia poikkeamia.
+Nagappan ja Ball toteavat, että mittausvirheet vaikuttavat arvion luomiseen. Ongelma ei ole kuitenkaan suuri, sillä versiohallintajärjestelmät hoitavat automaattisesti analyysiin vaadittavat lähtöarvot. Koodikirnu vaatii kuitenkin myös ohjelmiston kehittäjältä hyviä käytäntöjä. Jos kehittäjä on tehnyt useita muutoksia rekisteröimättä niitä versiohallintajärjestelmän historiaan, osa muutoksista jää näkemättä. Kehittäjän toimista riippuen myös muutosten ajanjakson pituus voi selvästi pidentyä, jos muutoksia ei hyväksytä tarpeeksi aikaisin versiohallintajärjestelmään. Mittojen vertaaminen keskenään lieventää tästä johtuvia poikkeamia.
 
-He toteavat myös, että tapaustutkimuksen pätevyyteen voidaan nähdä vaikuttavan myös sen tosiasian, että tutkimuksessa analysoitiin vain yhtä ohjelmajärjestelmää. Tämä ohjelmajärjestelmä kuitenkin koostuu lukuisista komponenteista ja suuresta määrästä koodia. Analyysi on siis itsessään erittäin kattava.
+He toteavat myös, että tapaustutkimuksen pätevyyteen voidaan nähdä vaikuttavan myös sen tosiasian, että tutkimuksessa analysoitiin vain yhtä ohjelmistojärjestelmää. Tämä ohjelmistojärjestelmä kuitenkin koostuu lukuisista komponenteista ja suuresta määrästä koodia. Analyysi on siis itsessään erittäin kattava.
 
 \section{Yhteenveto}
 
