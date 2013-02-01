@@ -24,11 +24,11 @@ file_exists() {
 
 tex_file() {
 
-    FILE=$1
-    BASENAME=$(basename "$FILE")
-    EXTENSION="${BASENAME##*.}"
+    file=$1
+    basename=$(basename "$file")
+    extension="${basename##*.}"
 
-    if [ "$EXTENSION" != 'tex' ]; then
+    if [ "$extension" != 'tex' ]; then
         echo "Expecting a .tex file."
         exit 0
     fi
@@ -38,31 +38,31 @@ argument_exists $1
 
 if [ "$1" == 'clean' ]; then
 
-    FILE=$2
-    DIRNAME=$(dirname "$FILE")
-    BASENAME=$(basename "$FILE")
-    FILENAME="${BASENAME%.*}"
+    file=$2
+    dirname=$(dirname "$file")
+    basename=$(basename "$file")
+    filename="${basename%.*}"
 
-    argument_exists $FILE
-    file_exists $FILE
-    tex_file $FILE
+    argument_exists $file
+    file_exists $file
+    tex_file $file
     
-    cd $DIRNAME
-    rm -f $FILENAME.aux $FILENAME.bbl $FILENAME.blg $FILENAME.log $FILENAME.out $FILENAME.pdf $FILENAME.toc
+    cd $dirname
+    rm -f $filename.aux $filename.bbl $filename.blg $filename.log $filename.out $filename.pdf $filename.toc
     
     exit 0
 fi
 
-FILE=$1
-DIRNAME=$(dirname "$FILE")
-BASENAME=$(basename "$FILE")
-FILENAME="${BASENAME%.*}"
+file=$1
+dirname=$(dirname "$file")
+basename=$(basename "$file")
+filename="${basename%.*}"
 
-file_exists $FILE
-tex_file $FILE
+file_exists $file
+tex_file $file
 
-cd $DIRNAME
-pdflatex $BASENAME
-bibtex $FILENAME
-pdflatex $BASENAME
-pdflatex $BASENAME
+cd $dirname
+pdflatex $basename
+bibtex $filename
+pdflatex $basename
+pdflatex $basename
