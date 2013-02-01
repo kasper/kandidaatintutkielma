@@ -29,7 +29,7 @@ tex_file() {
     extension="${basename##*.}"
 
     if [ "$extension" != 'tex' ]; then
-        echo "Expecting a .tex file."
+        echo 'Expecting a .tex file.'
         exit 0
     fi
 }
