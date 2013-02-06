@@ -78,8 +78,8 @@ erittäin kallista. On siis selvää, että laadun varmistaminen ja mahdollisten
 aikaisessa vaiheessa hyödyttää kehitystyötä suuresti.
 
     Nagappan ja Ball esittävät ohjelmistojen virhetiheyden arvioimiseen ratkaisuksi koodikirnua. Se mittaa ohjelmiston 
-komponenttien ohjelmakoodiin kohdistuvien muutosten määrää tietyn ajanjakson aikana. Tämä tieto on helposti saatavilla 
-ohjelmiston versiohallintajärjestelmien muutoshistoriasta. Useimmat versiohallintajärjestelmät vertailevat 
+komponenttien ohjelmakoodiin kohdistuvien muutosten määrää tietyn ajanjakson aikana. Muutosten määrä on helposti 
+saatavilla ohjelmiston versionhallintajärjestelmien muutoshistoriasta. Useimmat versionhallintajärjestelmät vertailevat 
 lähdekooditiedostojen historiaa ja laskevat automaattisesti koodiin kohdistuvia muutoksia. Nämä muutokset ilmentävät 
 kuinka monta riviä tiedostoon on ohjelmoijan toimesta lisätty, poistettu tai muutettu sitten viimeiseen versiohistoriaan 
 tallennetun version. Nämä muutokset muodostavat koodikirnun pohjan.
@@ -124,11 +124,11 @@ vertailukohdat ohjelmiston virheherkkyyden analysoimisessa. Ehdottomat mitat eiv
 
 \end{description}
 
-    Näiden pohjalta he muodostivat kahdeksan suhteellista koodikirnu-mittaa. Spearmanin järjestyskorrelaatiokertoimen 
-avulla he osoittavat, että nämä mitat johtavat selvästi kohonneeseen määrään virheitä koodirivejä kohden. Spearmanin 
-järjestyskorrelaatiokerroin kuvaa kahden asian keskinäistä vastaavuutta. He havaitsevat analyysissään myös suhteellisten 
-mittojen ylivertaisuuden ehdottomiin nähden. Empiiristen tutkimusten avulla he havaitsivat seuraavien mittojen 
-soveltuvuuden todellisen virhetiheyden ennakoimiseen.
+    Näiden pohjalta he muodostivat kahdeksan suhteellista koodikirnu-mittaa ja osoittivat, että nämä mitat korreloivat 
+selvästi kohonneeseen virhemäärään koodirivejä kohden. He käyttivät Spearmanin järjestyskorrelaatiokerrointa, joka kuvaa 
+kahden asian keskinäistä vastaavuutta. Analyysissään he havaitsivat suhteellisten mittojen ylivertaisuuden ehdottomiin 
+verrattuna. Empiiristen tutkimusten avulla he havaitsivat seuraavien mittojen soveltuvuuden todellisen virhetiheyden 
+ennakoimiseen.
 
 \begin{enumerate}
     
@@ -211,10 +211,10 @@ muodostui 96 189 lähdekooditiedostosta. Niistä käännettiin 2 465 yksittäist
 \section{Koodikirnun pätevyyteen vaikuttavia tekijöitä}
 
 Nagappan ja Ball toteavat, että mittausvirheet vaikuttavat arvion luomiseen. Ongelma ei ole kuitenkaan suuri, sillä 
-versiohallintajärjestelmät hoitavat automaattisesti analyysiin vaadittavat lähtöarvot. Koodikirnu vaatii kuitenkin myös 
+versionhallintajärjestelmät hoitavat automaattisesti analyysiin vaadittavat lähtöarvot. Koodikirnu vaatii kuitenkin myös 
 ohjelmiston kehittäjältä hyviä käytäntöjä. Jos kehittäjä on tehnyt useita muutoksia rekisteröimättä niitä 
-versiohallintajärjestelmän historiaan, osa muutoksista jää näkemättä. Kehittäjän toimista riippuen myös muutosten 
-ajanjakson pituus voi selvästi pidentyä, jos muutoksia ei hyväksytä tarpeeksi aikaisin versiohallintajärjestelmään. 
+versionhallintajärjestelmän historiaan, osa muutoksista jää näkemättä. Kehittäjän toimista riippuen myös muutosten 
+ajanjakson pituus voi selvästi pidentyä, jos muutoksia ei hyväksytä tarpeeksi aikaisin versionhallintajärjestelmään. 
 Mittojen vertaaminen keskenään lieventää tästä johtuvia poikkeamia.
 
     He toteavat myös, että tapaustutkimuksen pätevyyteen voidaan nähdä vaikuttavan myös sen tosiasian, että 
