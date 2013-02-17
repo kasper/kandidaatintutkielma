@@ -60,8 +60,8 @@
 \section{Johdanto}
 
 Ohjelmistot kehittyvät elinkaarensa aikana muun muassa uusien vaatimusten, optimisaatioiden, tietoturvaparannusten ja 
-virhekorjausten johdosta. Nagappan ja Ball esittävät artikkelissaan "Use of relative code churn measures to predict 
-system defect density"~\cite{NB05} suhteellisen koodikirnu-tekniikan järjestelmän virhetiheyden ennakoimiseen. 
+virhekorjausten johdosta. Nagappan ja Ball esittävät artikkelissaan ''Use of relative code churn measures to predict 
+system defect density''~\cite{NB05} suhteellisen koodikirnu-tekniikan järjestelmän virhetiheyden ennakoimiseen. 
 Koodikirnu (code churn) mittaa ja ilmaisee määrällisesti ohjelmiston komponentteihin kohdistuvia muutoksia tietyn 
 ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia koodikirnu-mittayksiköitä, jotka he rinnastavat 
 muihin muuttujiin kuten komponenttien kokoon tai muokkauksen ajalliseen pituuteen. Käyttäen apuna tilastollisia 
@@ -106,13 +106,13 @@ vertailukohdat ohjelmiston virheherkkyyden analysoimisessa. Ehdottomat mitat eiv
 \begin{description}
     
     \item[Yhteenlaskettu koodirivien määrä,] ohjelman uuden version ei-kommen\-toitujen koodirivien summa kaikkien 
-    lähdekooditiedostojen kesken.
+                                             lähdekooditiedostojen kesken.
     
     \item[Käsiteltyjen koodirivien määrä,] ohjelman lähdekoodiin lisättyjen ja muuttuneiden koodirivien summa 
-    edelliseen versioon nähden.
+                                           edelliseen versioon nähden.
     
     \item[Poistettujen koodirivien määrä,] ohjelman lähdekoodista poistettujen koodirivien määrä edelliseen versioon 
-    nähden.
+                                           nähden.
     
     \item[Tiedostojen määrä,] yhden ohjelman kääntämiseen tarvittavien lähdekoodi\-tiedostojen määrä.
     
@@ -179,11 +179,12 @@ ennakoimiseen.
     \item {\bf Käsiteltyjen ja poistettujen koodirivien määrä / Muutosten määrä}
     
     Mitä suurempi muutoksen laajuus on suhteessa muutosten määrään, sitä suurempi virhetiheys on. Mitta 8. toimii
-    verrokkina mitoille 3.-6. Suhteessa mittoihin 3. ja 4., mitta 8. ilmaisee todellisen muutoksen määrää. Se kompensoi
-    sitä tietoa, että yksittäisiä tiedostoja ei käsitellä toistuvasti pienten korjausten takia. Suhteessa mittoihin 5. 
-    ja 6.,mitä suurempi käsiteltyjen ja poistettujen koodirivien määrä on käsittelyä kohden, sitä pitempi muutosten 
-    ajanjakso tarvitaan ja sitä enemmän muutoksia kohdistuu esimerkiksi jokaista viikkoa kohden. Muussa tapauksessa 
-    suuri määrä muutoksia on saattanut kohdistua hyvin lyhyeen ajanjaksoon, joka ennakoi suurempaa virhetiheyttä.
+    verrokkina mitoille 3. -- 6. Suhteessa mittoihin 3. ja 4., mitta 8. ilmaisee todellisen muutoksen määrää. Se
+    kompensoi sitä tietoa, että yksittäisiä tiedostoja ei käsitellä toistuvasti pienten korjausten takia. Suhteessa
+    mittoihin 5. ja 6.,mitä suurempi käsiteltyjen ja poistettujen koodirivien määrä on käsittelyä kohden, sitä pitempi 
+    muutosten ajanjakso tarvitaan ja sitä enemmän muutoksia kohdistuu esimerkiksi jokaista viikkoa kohden. Muussa 
+    tapauksessa suuri määrä muutoksia on saattanut kohdistua hyvin lyhyeen ajanjaksoon, joka ennakoi suurempaa 
+    virhetiheyttä.
 
 \end{enumerate}
 
