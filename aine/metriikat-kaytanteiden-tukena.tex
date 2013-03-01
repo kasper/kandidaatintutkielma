@@ -63,68 +63,72 @@ Ohjelmistot kehittyvät elinkaarensa aikana muun muassa uusien vaatimusten, opti
 virhekorjausten johdosta. Kehitysvaiheessa olevan ohjelmiston laadun varmistaminen on 
 hankalaa~\cite{NB05, NB07, ZN08, MNDT09}. Ohjelmiston testaamisen ja käytännössä havaittujen virheiden välillä on usein 
 suuri kuilu. Virheiden määrää ei yleensä pystytä laskemaan luotettavasti ennen kuin tuote on valmis ja julkaistu 
-asiakkaalle. Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen kehityksen lopussa on usein erittäin kallista.
+asiakkaalle. Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen ohjelmiston julkaisun jälkeen on erittäin 
+kallista.
 
-    On selvää, että laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa 
-vaiheessa hyödyttää kehitystyötä suuresti. Ohjelmiston koodin takana on aina ihminen,  laadun takeeksi ei voida luetella 
-pelkästään mekaanisia, laatua arvioivia metriikoita. Siksi kehittäjän käytänteillä on suuri laadullinen merkitys 
+    Laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää 
+kehitystyötä suuresti~\cite{NB05}. Ohjelmiston koodin tuottajana on aina ihminen, joten laadun takeeksi ei voida 
+luetella pelkästään mekaanisia laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys 
 ohjelmiston kaikissa kehitysvaiheissa.
 
 \section{Laadullinen arviointi}
 
-ISO 8402 -standardi määrittelee ohjelmiston laadun kokonaisuutena, joka kattaa tuotteen tai palvelun piirteet, jotka 
-täyttävät ohjelmistoa vasten asetetut toiveet ja tarpeet. IEEE taas määrittelee laadun arviona, kuinka paljon 
-ohjelmisto, järjestelmä, komponentti tai prosessi täyttää sille etukäteen määritellyt vaatimukset ja asiakkaan sekä 
-käyttäjän asettamat tarpeet ja odotukset. Molemmat määritelmät painottavat vahvasti asiakkaan tarpeiden täyttämistä.
+ISO 9000 -standardi määrittelee ohjelmiston laadun kokonaisuutena, joka kattaa tuotteen tai palvelun piirteet, jotka 
+täyttävät ohjelmistoa vasten asetetut toiveet ja tarpeet~\cite{ISO9000}. IEEE taas määrittelee laadun arviona, kuinka 
+paljon ohjelmisto, järjestelmä, komponentti tai prosessi täyttää sille etukäteen määritellyt vaatimukset ja asiakkaan 
+sekä käyttäjän asettamat tarpeet ja odotukset~\cite{IEEE1074}. Molemmat määritelmät painottavat vahvasti asiakkaan 
+tarpeiden täyttämistä.
 
-    Laadulliset kriteerit on jaettu neljään osa-alueeseen: laatumalliin, ulkoisiin, sisäisiin ja käyttölaadullisiin 
-metriikoihin. Laatumalli luokittelee laadun jäsenneltynä joukkona laadullisina piirteinä ja vaatimuksina, jonka 
-kehyksiin organisaatio määrittelee ohjelmistoa varten laadulliset kriteerit. Ulkoiset metriikat vastaavat ohjelmiston 
-toimintaa, sisäiset metriikat pohjautuvat taas ohjelmiston sisäisiin, rakenteellisiin mittareihin. Ulkoisia metriikoita 
-voidaan mitata muun muassa julkaisun jälkeisten virheiden määrällä, eli kuinka paljon virheitä tuotteessa on. Sisäisillä 
-metriikoilla ohjelmiston laatua arvioidaan taas koodimetriikoilla, kuten koodin monimutkaisuudella, riippuvuuksilla ja 
-muilla vastaavilla tekijöillä. Sisäinen laatu tutkii siis olennaisesti koodin laatua. Käyttölaadullisuus voidaan 
-arvioida vasta kun ohjelmisto on julkaistu käyttötarkoitustaan varten.
+    Laadulliset kriteerit on jaettu neljään osa-alueeseen: laatumalliin (quality model), ulkoisiin, sisäisiin ja 
+käyttölaadullisiin metriikoihin (quality in use metrics). Laatumalli luokittelee laadun jäsenneltynä joukkona piirteitä 
+ja vaatimuksia, jonka kehyksiin organisaatio määrittelee ohjelmistoa varten laadulliset kriteerit. Ulkoiset metriikat 
+vastaavat ohjelmiston toimintaa, kun taas sisäiset metriikat pohjautuvat ohjelmiston sisäisiin rakenteellisiin 
+mittareihin.
 
-    Laadun varmistamista rajaa ohjelmistokehityksessä aika ja raha~\cite{ZN08}. Kehittäjät kohtaavat usein tiukkoja 
-määräaikoja ja rajallisia henkilöresursseja laadun takaamiseen. Johtavat käyttävät käytännössä pelkästään omakohtaisia 
-kokemuksiaan resurssien tehokkaaseen jakamiseen. Yleisenä totuutena pidetään, että monimutkaisiin komponentteihin on 
-syytä varata enemmän aikaa että rahaa. Tällä turvataan se, että komponenttien testaus ja tarkastus ohjataan 
-haastavimpiin osa-alueisiin. Johtajilla ei kuitenkaan ole läheskään aina tarvittavaa kokemusta tai tietoa, joiden 
-pohjalta he voisivat tehdä päätöksiä järkevästi. Siitä johtuen päätökset tehdään usein johtajien odotusten mukaan ja 
-tällöin he itse joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osatekijäksi muodostuu näin ollen 
-johtajien taito. On hyvin todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso kärsivät tästä.
+    Ulkoisia metriikoita voidaan mitata muun muassa julkaisun jälkeisten virheiden määrällä, eli kuinka paljon virheitä 
+tuotteessa on. Sisäisillä metriikoilla ohjelmiston laatua arvioidaan taas koodimetriikoilla, kuten koodin 
+monimutkaisuudella, riippuvuuksilla ja muilla vastaavilla tekijöillä. Sisäinen laatu tutkii olennaisesti koodin laatua. 
+Käyttölaadullisuus voidaan arvioida vasta kun ohjelmisto on julkaistu käyttötarkoitustaan varten.
 
-    Erilaiset metriikat tarjoavat yhden tehokkaan keinon ohjelmistojen laadun arviointiin. Staattisten ja dynaamisten 
-virheenpaikannustekniikoiden johdosta virheiden laatu on muuttunut. Virheenpaikannustekniikoilla pyritään analysoimaan 
-ohjelmiston lähdekoodia ja havaitsemaan siitä silmäänpistävimmät ''kielioppivirheet''. Tämän ansiosta suurin osa 
-virhetietokantoihin tallennetuista raporteista on nykyään luonteeltaan semanttisia, eli virheet koostuvat loogisista 
-ongelmista~\cite{ZN08}. Nykyään tehokkaiden metriikoiden tulee ottaa tämä huomioon.
+    Laadun varmistamista rajaa ohjelmistokehityksessä henkilöt, aika ja raha~\cite{ZN08}. Kehittäjät kohtaavat usein 
+tiukkoja määräaikoja ja rajallisia henkilöresursseja laadun takaamiseen. Johtajat käyttävät käytännössä pelkästään 
+omakohtaisia kokemuksiaan resurssien tehokkaaseen jakamiseen. Yleisenä totuutena pidetään, että monimutkaisiin 
+komponentteihin on syytä varata enemmän aikaa että rahaa~\cite{ZN08}. Tällä turvataan se, että komponenttien testaus ja 
+tarkastus ohjataan haastavimpiin osa-alueisiin. Johtajilla ei kuitenkaan ole läheskään aina tarvittavaa kokemusta tai 
+tietoa, joiden pohjalta he voisivat tehdä päätöksiä järkevästi. Siitä johtuen päätökset tehdään usein johtajien 
+odotusten mukaan ja tällöin he itse joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osatekijäksi 
+muodostuu näin ollen johtajien taito. On hyvin todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso 
+kärsivät tästä.
+
+    Metriikat tarjoavat yhden tehokkaan keinon ohjelmistojen laadun arviointiin. Staattisten ja dynaamisten 
+virheenpaikannustekniikoiden johdosta virheiden laatu on muuttunut~\cite{ZN08}. Virheenpaikannustekniikoilla pyritään 
+analysoimaan ohjelmiston lähdekoodia ja havaitsemaan siitä silmäänpistävimmät ''kielioppivirheet''. Tämän ansiosta 
+suurin osa virhetietokantoihin tallennetuista raporteista on nykyään luonteeltaan semanttisia, eli virheet koostuvat 
+loogisista ongelmista~\cite{ZN08}. Nykyään metriikoiden tulee ottaa tämä huomioon.
 
     Nagappan ja Ball esittävät suhteellisen koodikirnu-tekniikan järjestelmän virhetiheyden ennakoimiseen~\cite{NB05}. 
 Koodikirnu (code churn) mittaa ja ilmaisee määrällisesti ohjelmiston komponentteihin kohdistuvia muutoksia tietyn 
-ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia koodikirnu-mittayksiköitä, jotka he rinnastavat 
-muihin muuttujiin kuten komponenttien kokoon tai muokkauksen ajalliseen pituuteen. Käyttäen apuna tilastollisia 
+ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia mittayksiköitä, jotka he rinnastavat muihin 
+muuttujiin kuten komponenttien kokoon tai muokkauksen ajalliseen pituuteen. Käyttäen apuna tilastollisia 
 regressiomalleja, he osoittavat suhteellisten koodikirnu-mittojen kyvyn havaita järjestelmän virhetiheyden paremmin kuin 
 ehdottomien mittojen. Väittämien tueksi he suorittivat tapaustutkimuksen, jonka kohteena oli Windows Server 2003. 
-Samalla he osoittavat, että relatiivinen koodikirnu pystyy paikallistamaan virheherkät komponentit 89 \% tarkkuudella.
+Samalla he osoittavat, että suhteellinen koodikirnu pystyy paikallistamaan virheherkät komponentit 89 \% tarkkuudella.
 
-    Monimutkaisuusmetriikoilla mitataan tyypillisesti ohjelmiston virhealttiutta. Metriikat ovat muodostettu esimerkiksi 
-komponentin koodirivien, muuttujien ja metodien lukumäärästä. Niiden perimmäinen tarkoitus on arvioida kuinka 
-monimutkainen jokin ohjelmiston komponentti on. Taustalla on yksinkertainen olettamus, että monimutkaisuus lisää 
+    Monimutkaisuusmetriikoilla mitataan tyypillisesti ohjelmiston virhealttiutta~\cite{ZN08}. Metriikat ovat muodostettu 
+esimerkiksi komponentin koodirivien, muuttujien ja metodien lukumäärästä. Niiden perimmäinen tarkoitus on arvioida 
+kuinka monimutkainen jokin ohjelmiston komponentti on. Taustalla on yksinkertainen olettamus, että monimutkaisuus lisää 
 ohjelmiston virheherkkyyttä~\cite{NB05, NB07, ZN08, MNDT09}. Monimutkaisuusmetriikat keskittyvät kuitenkin harvoin 
 komponenttien välisiin vuorovaikutussuhteisiin.
 
-    Ylläpidettävyyden vuoksi ohjelmiston lähdekoodia on hyvä eriyttää mahdollisimman paljon niiden tarjoamien 
-palveluiden mukaan. Ohjelmiston komponentit riippuvat lähes aina toisista komponenteista, jolloin ne käyttävät niiden 
-tarjoamia palveluita tuottaakseen oman toiminnallisuutensa. Järjestelmän riippuvuudet voidaankin esittää matalan tason 
-verkkoina, jossa komponenttien keskinäiset suhteet paljastuvat. Niistä ilmenee mitä osia esimerkiksi komponentti A 
+    Ohjelmiston komponentit riippuvat lähes aina toisista komponenteista, jolloin ne käyttävät niiden tarjoamia 
+palveluita tuottaakseen oman toiminnallisuutensa. Järjestelmän riippuvuudet voidaankin esittää matalan tason verkkoina, 
+jossa komponenttien keskinäiset suhteet paljastuvat~\cite{ZN08}. Niistä ilmenee mitä osia esimerkiksi komponentti A 
 tarvitsee toiminnalleen ja myös toisinpäin, mitkä osat tarvitsevat A:n palveluita.
 
     Zimmermann ja Nagappan esittävät verkkoanalyysin suorittamista komponenttien riippuvuusverkoille~\cite{ZN08}. 
 Verkkoanalyysillä voidaan paikallistaa ohjelmiston kriittiset komponentit, jotka ovat muita virheherkempiä. Tämä 
 tapahtuu tutkimalla verkkoa sekä kokonaisuutena että osina (aliverkot) erilaisten verkkometriikoiden pohjalta. 
-Ohjelmistojen kohdalla komponentit muodostavat verkon toimijat ja komponenttien väliset riippuvuudet niiden väliset 
+Ohjelmistojen kohdalla komponentit muodostavat verkon toimijat ja komponenttien väliset riippuvuudet sekä niiden väliset 
 vuorovaikutukset.
 
     Zimmermann ja Nagappan vertasivat verkkoanalyysia ja monimutkaisuusmetriikoita Windows Server 2003:n laadun 
@@ -141,9 +145,9 @@ ennen kuin se julkaistaan asiakkaalle.
 
     Mockus, Nagappan ja Dinh-Trong tutkivat testien laadullista arviointia keinona havaita virheherkkiä komponentteja 
 ohjelmistosta~\cite{MNDT09}. Testien analysoimisessa tulisi keskittyä nimenomaan niiden kykyyn havaita mahdollisia 
-virheitä ohjelmistosta. On selvää, että taitavat kehittäjät todennäköisesti tuottavat laadukkaampia testejä, mutta 
-testien arvioiminen määrällisesti ja laadullisesti on kannattavampaa toteuttaa automaattisesti. Yleisin testien 
-tehokkuutta arvioiva mittari on testikattavuus.
+virheitä ohjelmistosta. Taitavat kehittäjät todennäköisesti tuottavat laadukkaampia testejä, mutta testien arvioiminen 
+määrällisesti ja laadullisesti on kannattavampaa toteuttaa automaattisesti. Yleisin testien tehokkuutta arvioiva mittari 
+on testikattavuus.
 
     Testikattavuuden lajeja on useita. Yksinkertaisista luokka-, funktio/metodi- ja käskykattavuuksista kehittyneisiin 
 haara- ja polkukattavuuksiin. Nimensä mukaan kukin laji testaa lähdekoodin eri osa-alueita. Funktio-/metodikattavuu\-della 
@@ -171,6 +175,9 @@ haluttua tulosta, varsinkaan asiakkaan kannalta. Useat empiiriset tutkimukset tu
 merkittävänä laadullisina tekijänä~\cite{SS10}.
 
 \section{Metriikat}
+
+    Metriikat tarjoavat yhden tehokkaan keinon ohjelmistojen laadun arviointiin. Metriikoita on lukuisia, näistä 
+muutamia ovat koodikirnu, verkkoanalyysi ja testikattavuus.
 
 \subsection{Koodikirnu}
 
