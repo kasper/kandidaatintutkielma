@@ -96,9 +96,8 @@ omakohtaisia kokemuksiaan resurssien tehokkaaseen jakamiseen. Yleisenä totuuten
 komponentteihin on syytä varata enemmän aikaa että rahaa~\cite{ZN08}. Tällä turvataan se, että komponenttien testaus ja 
 tarkastus ohjataan haastavimpiin osa-alueisiin. Johtajilla ei kuitenkaan ole läheskään aina tarvittavaa kokemusta tai 
 tietoa, joiden pohjalta he voisivat tehdä päätöksiä järkevästi. Siitä johtuen päätökset tehdään usein johtajien 
-odotusten mukaan ja tällöin he itse joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osatekijäksi 
-muodostuu näin ollen johtajien taito. On hyvin todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso 
-kärsivät tästä.
+odotusten mukaan ja tällöin he itse joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osaksi muodostuu näin 
+ollen johtajien taito. On hyvin todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso kärsivät tästä.
 
     Metriikat tarjoavat yhden tehokkaan keinon ohjelmistojen laadun arviointiin. Staattisten ja dynaamisten 
 virheenpaikannustekniikoiden johdosta virheiden laatu on muuttunut~\cite{ZN08}. Virheenpaikannustekniikoilla pyritään 
@@ -123,7 +122,7 @@ komponenttien välisiin vuorovaikutussuhteisiin.
     Ohjelmiston komponentit riippuvat lähes aina toisista komponenteista, jolloin ne käyttävät niiden tarjoamia 
 palveluita tuottaakseen oman toiminnallisuutensa. Järjestelmän riippuvuudet voidaankin esittää matalan tason verkkoina, 
 jossa komponenttien keskinäiset suhteet paljastuvat~\cite{ZN08}. Niistä ilmenee mitä osia esimerkiksi komponentti A 
-tarvitsee toiminnalleen ja myös toisinpäin, mitkä osat tarvitsevat A:n palveluita.
+tarvitsee toiminnalleen ja toisinpäin, mitkä osat tarvitsevat A:n palveluita.
 
     Zimmermann ja Nagappan esittävät verkkoanalyysin suorittamista komponenttien riippuvuusverkoille~\cite{ZN08}. 
 Verkkoanalyysillä voidaan paikallistaa ohjelmiston kriittiset komponentit, jotka ovat muita virheherkempiä. Tämä 
@@ -134,9 +133,9 @@ vuorovaikutukset.
     Zimmermann ja Nagappan vertasivat verkkoanalyysia ja monimutkaisuusmetriikoita Windows Server 2003:n laadun 
 arvioimisessa. Verkkoanalyysillä saavutetaan heidän tapaustutkimuksensa tilastollisten analyysien mukaan 10 \% parempi 
 hyötyaste kuin pelkillä komponenttien monimutkaisuutta mittaavilla metriikoilla. Zimmermann ja Nagappan havaitsivat 
-myös, että verkkometriikat pystyvät identifioimaan 60 \% komponenteista, joita ohjelmiston kehittäjät pitivät 
-kriittisinä ohjelmiston kannalta. Tämä on jopa kaksi kertaa enemmän kuin tavallisilla monimutkaisuusmetriikoilla 
-saavutettavat tulokset. 
+lisäksi, että verkkometriikat pystyvät identifioimaan 60 \% komponenteista, joita ohjelmiston kehittäjät pitivät 
+kriittisinä ohjelmiston kannalta. Tämä on kaksi kertaa enemmän kuin tavallisilla monimutkaisuusmetriikoilla 
+saavutettavat tulokset.
 
     Ohjelmiston kehityksessä koodin testaaminen on kriittinen osa laadun takaamista. Testaamisessa ohjelmiston 
 lähdekoodi alistetaan testitapauksille, joiden tarkoitus on kattaa ja varmistaa mahdollisimman hyvin kaikki loogiset 
@@ -158,7 +157,7 @@ katettu vähintään yhdellä testillä, ei sen mahdollisesti sisältämiä virh
     Voidaankin olettaa, että suurempi testikattavuus löytää todennäköisesti enemmän virheitä ja takaa näin ollen 
 paremman laadun. Kattavuus kuvaa yksinkertaisesti osuutta siitä kuinka monta riviä ohjelmakoodia on katettu sitä 
 testaavalla testikoodilla. Kattavuudella ei kuitenkaan pystytä arvioimaan kuinka todennäköisesti nämä rivit aiheuttavat 
-virheen, siksi suuri testikattavuus ei yksinään takaa laatua. On kuitenkin selvää, että testikattavuus auttaa laadun 
+virheen, siksi suuri testikattavuus ei yksinään takaa laatua. Testikattavuus auttaa kuitenkin merkittävästi laadun 
 takaamisessa. Muita metriikoita tulisi käyttää kohdentamaan testejä ohjelmiston kriittisiin 
 osa-alueisiin~\cite{NB07, MNDT09}.
 
@@ -172,7 +171,7 @@ merkitystä, asiakkaan merkitystä kehitysprosessin kriittisenä osana ja muutok
 Ketterässä kehityksessä ohjelmisto tuotetaan iteratiivisesti, pala kerrallaan, sopeutuen uusiin tavoitteisiin. 
 Vesiputousmallissa, jossa ohjelmisto suunnitellaan tiukasti ennen toteutusta, lopputuotokset eivät yleensä vastaa 
 haluttua tulosta, varsinkaan asiakkaan kannalta. Useat empiiriset tutkimukset tukevat ketterien kehitysmallien hyötyä 
-merkittävänä laadullisina tekijänä~\cite{SS10}.
+merkittävänä laadullisina vaikuttajana~\cite{SS10}.
 
 \section{Metriikat}
 
@@ -190,17 +189,17 @@ versiohistoriaan tallennetun version. Nämä muutokset muodostavat koodikirnun p
 
     Nagappan ja Ball esittävät joukon suhteellisia koodikirnu-mittoja virhetiheyden havaitsemiseen. Mitat ovat 
 normalisoituja arvoja koodikirnun aikana saaduista tuloksista. Normalisoinnilla niistä on pyritty poistamaan mahdolliset 
-häiriötekijät. Näitä mittoja on muun muassa yhteenlaskettujen koodirivien määrä, tiedostojen muutokset ja tiedostojen 
-määrä. Tutkimukset ovat osoittaneet, että ehdottomat mittayksiköt, kuten pelkkä koodirivien summa, ovat huonoja ohjelmiston 
+häiriöt. Näitä mittoja on muun muassa yhteenlaskettujen koodirivien määrä, tiedostojen muutokset ja tiedostojen määrä. 
+Tutkimukset ovat osoittaneet, että ehdottomat mittayksiköt, kuten pelkkä koodirivien summa, ovat huonoja ohjelmiston 
 laadullisia ennusteita. Yleisesti ottaen ohjelmiston kehitysprosessia mittaavien yksiköiden on havaittu olevan parempia
-osoittimia vikojen määrästä kuin pelkkää koodia arvioivat tekijät.
+osoittimia vikojen määrästä kuin pelkkää koodia arvioivat kriteerit.
 
     Ohjelmistoa kehitettäessä sen komponenttien monimutkaisuus muuttuu. Monimutkaisuuden kasvun suhde on hyvä mittari 
-virheherkkyyden kasvulle. Koodikirnu-mittojen on havaittu korreloivan selvästi ohjelmistoista tehtyjen vikailmoitusten 
-kanssa. Mittojen välillä on havaittavissa myös keskinäisiä suhteita, joita voidaan mallintaa verkkoina. Yksinään 
+virheherkkyyden kasvulle. Koodikirnu-mittojen on havaittu korreloivan näkyvästi ohjelmistoista tehtyjen vikailmoitusten 
+kanssa. Mittojen välillä on havaittavissa lisäksi keskinäisiä suhteita, joita voidaan mallintaa verkkoina. Yksinään 
 kyseiset mittarit eivät välttämättä tuota toivottua tulosta. Näin ollen mittoja verrataan keskenään mahdollisten 
-ristiriitaisuuksien havaitsemiseksi. On kuitenkin selvää, että johtopäätöksiin päätyminen on hankalaa empiirissä 
-tutkimuksissa, koska prosessien taustalla on usein laajoja kontekstisidonnaisia tekijöitä.
+ristiriitaisuuksien havaitsemiseksi. Johtopäätöksiin päätyminen on hankalaa empiirissä tutkimuksissa, koska prosessien 
+taustalla on usein laajoja kontekstisidonnaisia tekijöitä.
 
 \subsubsection{Ohjelmiston virheherkkyyteen vaikuttavat mitat}
 
@@ -229,8 +228,8 @@ vertailukohdat ohjelmiston virheherkkyyden analysoimisessa. Ehdottomat mitat eiv
 \end{description}
 
     Näiden pohjalta he muodostivat kahdeksan suhteellista koodikirnu-mittaa ja osoittivat, että nämä mitat korreloivat 
-selvästi kohonneeseen virhemäärään koodirivejä kohden. He käyttivät Spearmanin järjestyskorrelaatiokerrointa, joka kuvaa 
-kahden asian keskinäistä vastaavuutta. Analyysissään he havaitsivat suhteellisten mittojen ylivertaisuuden ehdottomiin 
+kohonneeseen virhemäärään koodirivejä kohden. He käyttivät Spearmanin järjestyskorrelaatiokerrointa, joka kuvaa kahden 
+asian keskinäistä vastaavuutta. Analyysissään he havaitsivat suhteellisten mittojen ylivertaisuuden ehdottomiin 
 verrattuna. Empiiristen tutkimusten avulla he havaitsivat seuraavien mittojen soveltuvuuden todellisen virhetiheyden 
 ennakoimiseen.
 
@@ -251,7 +250,7 @@ ennakoimiseen.
     Suurempi osa käsiteltyjä tiedostoja suhteessa ohjelman rakentavien tiedostojen lukumäärään lisää todennäköisyyttä, 
     että nämä käsitellyt tiedostot aiheuttavat uusia vikoja. Esimerkiksi meillä on kaksi ohjelmaa A ja B, jotka molemmat 
     koostuvat 20 lähdekooditiedostosta. A sisältää viisi käsiteltyä tiedostoa ja B kaksi. Todennäköisyys sille, että 
-    muutokset ohjelmaan A saattavat aiheuttaa uusia vikoja on siis suurempi.
+    muutokset ohjelmaan A saattavat aiheuttaa uusia vikoja on suurempi.
     
     \item {\bf Muutosten määrä / Käsiteltyjen tiedostojen määrä}
     
@@ -275,10 +274,10 @@ ennakoimiseen.
 
     \item {\bf Käsiteltyjen koodirivien määrä / Poistettujen koodirivien\\määrä}
     
-    Ohjelmiston kehitys ei koostu pelkästään vikojen korjaamisesta vaan myös uuden kehittämisestä. Uusien ominaisuuksien 
-    kehittämisessä käsiteltyjen koodirivien määrä on suhteessa suurempi kuin poistettujen koodirivien määrä. Suuri arvo 
-    tälle mitalle ilmaisee uutta kehitystä. Saatua arvoa verrataan mittoihin 1. ja 2., jotka yksinään eivät ennakoi 
-    uutta kehitystä.
+    Ohjelmiston kehitys ei koostu pelkästään vikojen korjaamisesta vaan jatkuvasta uuden kehittämisestä. Uusien 
+    ominaisuuksien kehittämisessä käsiteltyjen koodirivien määrä on suhteessa suurempi kuin poistettujen koodirivien 
+    määrä. Suuri arvo tälle mitalle ilmaisee uutta kehitystä. Saatua arvoa verrataan mittoihin 1. ja 2., jotka yksinään 
+    eivät ennakoi uutta kehitystä.
 
     \newpage
 
@@ -296,10 +295,10 @@ ennakoimiseen.
 
 \subsubsection{Johtopäätökset koodikirnusta}
 
-Nagappan ja Ball havaitsivat, että koodi joka muuttuu useasti ennen julkaisua on selvästi virheherkempää kuin koodi, 
-joka muuttuu vähemmän saman ajanjakson aikana. He tutkivat kahden ohjelmistojulkaisun Windows Server 2003 ja Windows 
-Server 2003 Service Pack 1 pohjalta saatuja tuloksia. Julkaisuista analysoitiin 44,97 miljoonaa riviä koodia, joka 
-muodostui 96 189 lähdekooditiedostosta. Niistä käännettiin 2 465 yksittäistä ohjelmaa.\newline
+Nagappan ja Ball havaitsivat, että koodi joka muuttuu useasti ennen julkaisua on virheherkempää kuin koodi, joka muuttuu 
+vähemmän saman ajanjakson aikana. He tutkivat kahden ohjelmistojulkaisun Windows Server 2003 ja Windows Server 2003 
+Service Pack 1 pohjalta saatuja tuloksia. Julkaisuista analysoitiin 44,97 miljoonaa riviä koodia, joka muodostui 96 189 
+lähdekooditiedostosta. Niistä käännettiin 2 465 yksittäistä ohjelmaa.\newline
 
 \noindent He päätyivät tutkimuksessaan neljään johtopäätökseen:
 
@@ -318,15 +317,15 @@ muodostui 96 189 lähdekooditiedostosta. Niistä käännettiin 2 465 yksittäist
 \subsubsection{Koodikirnun pätevyyteen vaikuttavia tekijöitä}
 
 Nagappan ja Ball toteavat, että mittausvirheet vaikuttavat arvion luomiseen. Ongelma ei ole kuitenkaan suuri, sillä 
-versionhallintajärjestelmät hoitavat automaattisesti analyysiin vaadittavat lähtöarvot. Koodikirnu vaatii kuitenkin myös 
+versionhallintajärjestelmät hoitavat automaattisesti analyysiin vaadittavat lähtöarvot. Koodikirnu vaatii kuitenkin 
 ohjelmiston kehittäjältä hyviä käytäntöjä. Jos kehittäjä on tehnyt useita muutoksia rekisteröimättä niitä 
-versionhallintajärjestelmän historiaan, osa muutoksista jää näkemättä. Kehittäjän toimista riippuen myös muutosten 
-ajanjakson pituus voi selvästi pidentyä, jos muutoksia ei hyväksytä tarpeeksi aikaisin versionhallintajärjestelmään. 
-Mittojen vertaaminen keskenään lieventää tästä johtuvia poikkeamia.
+versionhallintajärjestelmän historiaan, osa muutoksista jää näkemättä. Kehittäjän toimista riippuen muutosten ajanjakson 
+pituus voi merkittävästi pidentyä, jos muutoksia ei hyväksytä tarpeeksi aikaisin versionhallintajärjestelmään. Mittojen 
+vertaaminen keskenään lieventää tästä johtuvia poikkeamia.
 
-    He toteavat myös, että tapaustutkimuksen pätevyyteen voidaan nähdä vaikuttavan myös sen tosiasian, että 
-tutkimuksessa analysoitiin vain yhtä ohjelmistojärjestelmää. Tämä ohjelmistojärjestelmä kuitenkin koostuu lukuisista 
-komponenteista ja suuresta määrästä koodia. Analyysi on siis itsessään erittäin kattava.
+    He toteavat lisäksi, että tapaustutkimuksen pätevyyteen voidaan nähdä vaikuttavan se, että tutkimuksessa 
+analysoitiin vain yhtä ohjelmistojärjestelmää. Tämä ohjelmistojärjestelmä kuitenkin koostuu lukuisista komponenteista 
+ja suuresta määrästä koodia. Analyysi on itsessään erittäin kattava.
 
 \subsection{Verkkoanalyysi}
 
@@ -337,7 +336,7 @@ Verkkoanalyysillä voidaan paikallistaa ohjelmiston kriittiset komponentit, jotk
 virheherkempiä.
 
     Zimmermann ja Nagappan tutkivat julkaisun jälkeisten virheilmoitusten ja riippuvuusverkkojen suhdetta ja havaitsivat 
-kaksi olennaista tekijää. Selvästi keskeisessä roolissa olevat komponentit sekä yksittäiset komponentit, joilla on suuri 
+kaksi olennaista vaikuttajaa. Keskeisessä roolissa olevat komponentit sekä yksittäiset komponentit, joilla on suuri 
 määrä keskinäisiä riippuvuuksia, ovat yleisesti herkempiä virheille.
 
     Riippuvuus ohjelmistoissa on suunnattu yhteys kahden koodiosan kuten lausekkeen tai metodin välillä. Riippuvuudet 
@@ -363,8 +362,7 @@ tiedon valossa muita monimutkaisempia riippuvuuksiensa johdosta.
 
     Aikaisempien tutkimusten mukaan on havaittu, että koodikirnu ja riippuvuusverkot ovat yhdessä hyviä metriikoita 
 arvioida ohjelman virheherkkyyttä~\cite{NB07}. Jos komponentti B muuttuu paljon eri versioiden välillä, voidaan olettaa, 
-että komponentin A täytyy muuttua myös, jotta muutokset B:hen ovat mahdollisia. Muutos yleensä leviää riippuvuuksien 
-välillä.
+että komponentin A täytyy muuttua, jotta muutokset B:hen ovat mahdollisia. Muutos yleensä leviää riippuvuuksien välillä.
 
     Riippuvuusverkossa näkyvät yhteydet ilmentävät kuinka paljon työtä tarvitaan yhteyksien ylläpitämiseen. Muutosten 
 määrän lisäksi yhteydet voivat kertoa virheherkkyydestä muutakin tärkeää tietoa. Lähdekoodi ei muodosta pelkästään 
@@ -417,12 +415,12 @@ merkittävästi tai positiivisesti julkaisun jälkeen ilmoitettuihin virheisiin.
     piirteillä. Mikäli komponentti riippuu hyvin suuresta määrästä toisia komponentteja, on se todennäköisesti muita 
     komponentteja virheherkempi.
     
-    Komponentit, joiden riippuvuuksien välillä on hyvin lyhyet polut, voidaan todeta olevan myös muita virhealttiimpia. 
-    Muutokset näihin komponentteihin yleensä leviävät myös komponenttien riippuvuuksiin.
+    Komponentit, joiden riippuvuuksien välillä on hyvin lyhyet polut, voidaan todeta olevan muita virhealttiimpia. 
+    Muutokset näihin komponentteihin yleensä leviävät komponenttien riippuvuuksiin.
     
-    Keskeisyydellä on tutkimuksen mukaan myös vastakkainen vaikutus. Keskeisyys saattaa tehdä komponenteista jopa 
-    vähemmän virheherkkiä. Oletettavasti näihin komponentteihin on kehitystyössä luultavasti panostettu enemmän, joka 
-    parantaa niiden laatua.
+    Keskeisyydellä on tutkimuksen mukaan vastakkainen vaikutus. Keskeisyys saattaa tehdä komponenteista vähemmän 
+    virheherkkiä. Oletettavasti näihin komponentteihin on kehitystyössä luultavasti panostettu enemmän, joka parantaa 
+    niiden laatua.
     
 \end{enumerate}
 
@@ -438,7 +436,7 @@ avulla.
 komponenttien listaan. Monimutkaisuusmetriikat löysivät kriittistä komponenteista vain 30 \%, kun verkkoanalyysillä 
 saavutettiin kaksi kertaa parempi tulos.
 
-    Yksittäisissä tapauksissa monimutkaisuusmetriikat olivat toisaalta jopa hieman parempia kuin verkkometriikat. 
+    Yksittäisissä tapauksissa monimutkaisuusmetriikat olivat toisaalta hieman parempia kuin verkkometriikat. 
 Olio-ohjelmointiin liittyvät monimutkaisuusmetriikat eivät kuitenkaan sovellu epäyhtenäisten ohjelmistojen arvioimiseen. 
 Ohjelmiston täytyy noudattaa täysin olio-paradigmaa, jotta metriikoilla olisi merkitystä.
 
@@ -468,10 +466,9 @@ paikkaan. He kuitenkin toteavat, että näin ei aina ole, mutta tämä olettamus
 takia. Virheherkkyyden arvioimiseen ei ole löytynyt yksittäistä ''parasta'' ratkaisua, joten verkkoanalyysin tuottamia 
 tuloksia ei pystytty vertailemaan sellaisen tehokkuuteen. Tulokset antavat kuitenkin lupaavia viitteitä.
 
-    Zimmermann ja Nagappan toteavat myös, että tapaustutkimukseen voi vaikuttaa se tosiasia, että tutkimuksessa 
-analysoitiin vain yhtä ohjelmistojärjestelmää. Tämä järjestelmä on kuitenkin kooltaan suurempi kuin useat muut 
-kaupalliset ohjelmistot. Tästä johtuen verkkoanalyysin pitäisi soveltua virheherkkyyden arvioimiseen myös muissa 
-ohjelmistoissa. 
+    Zimmermann ja Nagappan toteavat, että tapaustutkimukseen voi vaikuttaa se, että tutkimuksessa analysoitiin vain yhtä 
+ohjelmistojärjestelmää. Tämä järjestelmä on kuitenkin kooltaan suurempi kuin useat muut kaupalliset ohjelmistot. Tästä 
+johtuen verkkoanalyysin pitäisi soveltua virheherkkyyden arvioimiseen muissa ohjelmistoissa. 
 
     Verkkoanalyysi ei todennäköisesti sovellu yksinään virheherkkyyden arvioimiseen. Sen voidaan kuitenkin nähdä olevan 
 osa palapeliä. Tutkimuksessa esille tulleet monimutkaisuusmetriikat ja koodikirnu ovat Zimmermannin ja Nagappanin mukaan 
@@ -491,9 +488,8 @@ testaamiseen käytettiin Microsoftin sisällä kehitettyä työkalua ja Avayan t
 Testikattavuus keskittyi eri ohjelmointikielistä johtuen näiden kielten eri piirteisiin.
 
     Mockus ym. havaitsivat tutkimuksessaan, että molempien ohjelmistojen osalta suurempaa testikattavuutta seurasi 
-pienempi määrä julkaisun jälkeisiä virheilmoituksia. He huomasivat myös, että suuremman testikattavuuden saavuttaminen 
-kasvaa eksponentiaalisesti, mitä suurempiin testikattavuuksiin tähdätään. Samalla virheherkkyys vähenee vain 
-lineaarisesti. 
+pienempi määrä julkaisun jälkeisiä virheilmoituksia. He huomasivat, että suuremman testikattavuuden saavuttaminen kasvaa 
+eksponentiaalisesti, mitä suurempiin testikattavuuksiin tähdätään. Samalla virheherkkyys vähenee vain lineaarisesti. 
 
     Optimaalinen testikattavuus ei tunnu olevan lähelläkään 100 \%, eikä sen saavuttaminen ole ohjelmiston laadun 
 kannalta välttämätöntä, saati tehokasta. He käyttivät tutkimuksessaan Spearmanin järjestyskorrelaatiokerrointa 
@@ -504,9 +500,9 @@ tästä työstä tapahtuu kuitenkin kehittäjän toimesta kehitysvaiheessa yksik
 tallennu versionhallintaan eikä virheitä ilmoiteta virhetietokantoihin. Tämän korrelaation tutkiminen on valitettavan 
 haasteellista.
 
-    Mockus ym. havaitsivat tutkimuksessaan, että lähdekoodin monimutkaisuus, ohjelmiston käyttökohde, kehittäjien taso 
-ja etätyöskentely vaikuttavat myös ohjelmiston virheherkkyyteen sekä testien kattavuuteen. Vähemmän kokeneilla 
-kehittäjillä ja etätyöskentelyssä testikattavuuden merkitys kasvaa selvästi. 
+    Mockus ym. havaitsivat tutkimuksessaan, että lähdekoodin monimutkaisuus, ohjelmiston käyttökohde, kehittäjien 
+kokemus ja etätyöskentely vaikuttavat ohjelmiston virheherkkyyteen sekä testien kattavuuteen. Vähemmän kokeneilla 
+kehittäjillä ja etätyöskentelyssä testikattavuuden merkitys kasvaa merkittävästi. 
 
 \subsubsection{Testikattavuuden vaikutus ohjelmiston virheherkkyyteen}
 
@@ -514,38 +510,38 @@ Mockus ym. tutkimus analysoi versionhallintajärjestelmistä, virhetietokannoist
 arvioidakseen kunkin osa-alueen vaikutusta ohjelmiston virheherkkyyteen. Samalla ohjelmistoista laskettiin 
 monimutkaisuusmetriikoita ja tutkittiin lähdekoodin muutosten määrää. Aikaisempien tutkimusten mukaan muutosten määrä on 
 varteenotettava mittari virheherkkyyden arvioimiseen, siksi testikattavuus on syytä suhteuttaa siihen. Tilastollisten 
-analyysien lisäksi he myös haastattelivat kehittäjiä tulosten vahvistamiseksi.
+analyysien lisäksi he haastattelivat kehittäjiä tulosten vahvistamiseksi.
 
-    Avaya -tapauksessa Mockus ym. havaitsivat selvän korrelaation testikattavuuden kasvulla ja julkaisun jälkeisten 
-virheilmoitusten vähenemisellä. Lähdekooditiedostoja joita testit eivät kattaneet, löytyi selvästi eniten 
-virheilmoituksia. Vastaavasti tiedostoille, joiden testikattavuus oli vähintään 50 \%, virheiden määrä oli selvästi 
-pienempi. Testikattavuuden teho kuitenkin ryhtyy vähenemään jo 60 \% kattavuuden kohdalla.
+    Avaya -tapauksessa Mockus ym. havaitsivat näkyvän korrelaation testikattavuuden kasvulla ja julkaisun jälkeisten 
+virheilmoitusten vähenemisellä. Lähdekooditiedostoja joita testit eivät kattaneet, löytyi eniten virheilmoituksia. 
+Vastaavasti tiedostoille, joiden testikattavuus oli vähintään 50 \%, virheiden määrä oli pienempi. Testikattavuuden 
+teho kuitenkin ryhtyy vähenemään jo 60 \% kattavuuden kohdalla.
 
     Versionhallintajärjestelmistä pystytään analysoimaan testikattavuuden saavuttamiseen käytetty aika, eli kuinka kauan 
 kehittäjän on täytynyt käyttää yksittäisen komponentin automaattiseen testaamiseen. Kattavimpiin testeihin kuluu 
 eksponentiaalisesti pidempi aika mitä korkeampia testikattavuuksia tavoitellaan. Tämä indikoi, että täyden 
-testikattavuuden tavoittaminen ei kaikissa tapauksista ole välttämättä hyödyllistä. Tämä voi johtua myös siitä, että 
+testikattavuuden tavoittaminen ei kaikissa tapauksista ole välttämättä hyödyllistä. Tämä voi johtua siitä, että 
 tiedostot jotka muuttuvat eniten ovat testattu kattavammin, sillä muutokset helposti tuovat uusia virheitä. 50 \% 
 testikattavuuden saavuttaminen näyttää tulosten pohjalta olevan suhteellisen helppoa. Mockus ym. vertasivat Avayasta 
-saatuja tuloksia ja havaitsivat, että samat johtopäätökset voitiin tehdä myös Windows Vistan tapauksessa.
+saatuja tuloksia ja havaitsivat, että samat johtopäätökset voitiin tehdä Windows Vistan tapauksessa.
 
     Tilastollisen analysoinnin tulosten tueksi Mockus ym. suorittivat haastattelun tuotteiden kehittäjätiimeissä. 
 Kehittäjät, jotka kirjoittavat lähdekoodin alusta asti, testaavat yleensä koodin kattavammin. Kehittäjät, jotka vain 
-ylläpitävät toisten kirjoittamaa koodia, harvoin kasvattavat koodin testikattavuutta. Selvästi loogisesti monimutkaiset 
-ja helpot lähdekooditiedostot testataan usein muita kattavammin. Myös komponentit, jotka tarjoavat palveluita useille 
-muille komponenteille testataan haastattelun pohjalta kattavammin.
+ylläpitävät toisten kirjoittamaa koodia, harvoin kasvattavat koodin testikattavuutta. Loogisesti monimutkaiset 
+ja helpot lähdekooditiedostot testataan usein muita kattavammin. Komponentit, jotka tarjoavat palveluita useille muille 
+komponenteille testataan haastattelun pohjalta kattavammin.
 
     Keskeisessä roolissa olevista komponenteista saatetaan toisaalta löytää enemmän virheitä puhtaasti sen takia, että 
 niitä käytetään useammin. Nämä komponentit joutuvat tiukempiin käytännöntilanteisiin liittyviin testauksiin. 
-Testikattavuuden saavuttaminen on selvästi heikompaa käyttöliittymään ja tietokantaan liittyvissä koodiosuuksissa, koska 
-näiden testaamista pidetään kehittäjien keskuudessa muita haastavampana. Haastattelussa havaittiin myös, että 
-etätyöskentely tuntuu vähentävän testauksen määrää.
+Testikattavuuden saavuttaminen on heikompaa käyttöliittymään ja tietokantaan liittyvissä koodiosuuksissa, koska näiden 
+testaamista pidetään kehittäjien keskuudessa muita haastavampana. Haastattelussa havaittiin, että etätyöskentely tuntuu 
+vähentävän testauksen määrää.
 
 \subsubsection{Johtopäätökset testikattavuudesta}
 
 Testikattavuuden lähtökohtana on se, että lähdekoodin virheitä ei pystytä havaitsemaan ellei kyseisiä rivejä testata 
 vähintään yhdellä testillä. Testikattavuuden ja laadun välistä yhteyttä on tutkittu yllättävän vähän, varsinkaan 
-laadullisista näkökulmista. Testikattavuutta tulisi ohjata komponenttien tärkeysjärjestyksen pohjalta. Selvästi 
+laadullisista näkökulmista. Testikattavuutta tulisi ohjata komponenttien tärkeysjärjestyksen pohjalta. Olennaisesti 
 kriittisempiä osia tulisi painottaa testeissä, unohtamatta siltikään pienemmissä osissa olevia osia.
 
     Ongelmana on kuitenkin se, että vakavimmat virheet voidaan havaita jo hyvin pienellä testikattavuudella. Vaikka 
@@ -556,12 +552,12 @@ lisää todennäköisyyttä, että nämäkin tilanteet tulevat katettua.
     Eri ohjelmistot kehitetään lähtökohtaisesti eri tarkoituksiin, eri kehittäjien ja testaajien toimesta. 
 Testikattavuus on tärkeä suhteellistaa näihin olosuhteisiin. Kontekstit ovat harvemmin samoja. Kokeneet kehittäjät 
 kirjoittavat yleensä laadullisesti parempia testejä, koska kokemuksen karttuminen kasvattaa testikattavuutta ja näin 
-ollen vähentää ohjelmiston virhetiheyttä. Inhimillisillä tekijöillä on siis valtava merkitys ohjelmiston laadullisissa 
+ollen vähentää ohjelmiston virhetiheyttä. Inhimillisillä tekijöillä on valtava merkitys ohjelmiston laadullisissa 
 tekijöissä.
 
     Mockus ym. toteavat testikattavuuden olevan käytännöllinen ja järkevä keino mitata ja varmistaa ohjelmiston laatua. 
 Valitettavasti täydellisen testikattavuuden saavuttaminen ei ole todennäköisesti järkevää, sillä sen lopullinen 
-hyödyllisyys näyttää olevan jopa negatiivinen ja samalla suurempien testikattavuuksien saavuttaminen 
+hyödyllisyys näyttää olevan negatiivinen ja samalla suurempien testikattavuuksien saavuttaminen 
 haasteellista.\newline
 
 \noindent Mockus ym. päätyvät seuraaviin neljään johtopäätökseen testikattavuudesta:
@@ -583,16 +579,16 @@ haasteellista.\newline
 
 \subsubsection{Testikattavuuden pätevyyteen vaikuttavia tekijöitä}
 
-Testikattavuuden pätevyyteen vaikuttaa samat tekijät, jotka vaikuttivat koodikirnun ja verkkoanalyysin pätevyyteen. 
+Testikattavuuden pätevyyteen vaikuttaa samat piirteet, jotka vaikuttivat koodikirnun ja verkkoanalyysin pätevyyteen. 
 Empiiristä tutkimuksista on vaikea tehdä yleisiä päätelmiä niiden kontekstisidonnaisen luonteen takia. Tutkimuksen 
 pätevyyttä tukevoittaa kuitenkin se, että tapaustutkimuksessa tutkittiin kahta täysin erilaista ohjelmistoa. 
-Ohjelmistojen takana oli eri organisaatio, sovellusala, ohjelmointikieli ja koko. Samalla myös kehittäjätiimien koko oli 
-eri ja käyttäjäkunta myös. Voidaankin olettaa, että testikattavuus soveltuu hyvin myös muihin ohjelmistoihin.
+Ohjelmistojen takana oli eri organisaatio, sovellusala, ohjelmointikieli ja koko. Samalla kehittäjätiimien ja 
+käyttäjäkuntien koko oli eri. Voidaankin olettaa, että testikattavuus soveltuu hyvin muihin ohjelmistoihin.
 
 \section{Kehittäjien käytänteet}
 
 Ohjelmiston koodin takana on aina ihminen: kehittäjien käytänteillä ja ohjelmiston kehitysmalleilla on suuri laadullinen 
-merkitys. Avainkysymykseksi nousee paikallistaa ne käytänteet, joilla on selvä yhteys ohjelmiston laatuun.
+merkitys. Avainkysymykseksi nousee paikallistaa ne käytänteet, joilla on ratkaiseva yhteys ohjelmiston laatuun.
 
     Vanhojen raskaaseen ennakkosuunniteluun pohjautuvien menetelmien, kuten vesiputousmallin, rinnalla on noussut uusia 
 ketterän kehityksen malleja. Sfetsos ja Stamelos suorittivat katselmuksen ketterän kehityksen empiirisistä 
@@ -604,7 +600,7 @@ ympärille~\cite{BBB01}. Se painottaa yksilöitä ja yksilöiden vuorovaikutusta
 merkitystä kehitysprosessin kriittisenä osana ja muutoksiin sopeutuvaa kehitystä. Näiden periaatteiden takaamiseksi, 
 ketterän kehityksen malleille on muodostunut useita käytänteitä. Näillä kehittäjät pystyvät hallinnoimaan ja 
 varmistamaan kehitystyötä, varsinkin laadullisesta näkökulmasta. Ketterän kehitys huomioi nimenomaan asiakkaan 
-kehitysprosessin tärkeänä osatekijänä.
+kehitysprosessin tärkeänä osana.
 
     Asiakkaan tarpeet tulisi kartoittaa ja taata koko kehitysjakson aikana. Lopulta tuotettavan tuotteen tulisi tuoda 
 jotain arvoa asiakkaalle. Ohjelmiston vaatimuksia on vaikea määrittää kattavasti heti alusta lähtien, siksi ketterässä 
@@ -624,7 +620,7 @@ tavoitteidensa ja toivomusten osalta ja pyrkiä selventämään niitä kehittäj
 henkilö tekee sitä jatkuvasti omalta osaltaan. Henkilöille pitää luoda ilmapiiri ja ympäristö, jossa tämä on 
 mahdollista. Kehitystiimin ja asiakkaan välinen luottamus on ensisijaisen tärkeää. Jatkuva tiedonvälitys ja keskustelu 
 on olennainen osa tämän saavuttamista. Asiakas on jatkuvasti kehityksessä mukana arvioiden sovelluksen soveltavuutta 
-tarkoituksiinsa. Samanaikaisesti hänen tulee myös varmistaa tuotteen toimivuus käyttäjien kannalta.
+tarkoituksiinsa. Samanaikaisesti hänen tulee varmistaa tuotteen toimivuus käyttäjien kannalta.
 
     Hyvien käytänteiden ja laadullisesti järkevien ratkaisujen seuraaminen parantaa ohjelmiston suunnittelua ja laatua. 
 Mahdollisia ongelmia tulee katselmoida mahdollisimman usein ja tiimin toimintoja kehittää näiden ongelmien osalta. 
@@ -657,9 +653,9 @@ rakentamaan toiminnallisuudet paremmiksi, kehittämällä jatkuvasti ohjelmiston
     Hyväksymätestien lisäksi, joita käytetään ohjelmiston vaatimusten määrit\-telemiseen, testilähtöinen kehitys ja 
 refaktorointi parantavat yleisesti ohjelmiston laatua. Suurin osa kokeista ja tapaustutkimusta osoittivat Sfetsoksen ja 
 Stameloksen katselmuksen mukaan laajoja laadullisia parannuksia ohjelmistojen ulkoiseen~\cite{SS10}. Julkaisun 
-jälkeiset virheet vähenivät 5 \% -- 45 \%, joissain tapauksissa jopa 50 \% -- 90 \%. Tapaustutkimukset osoittivat 
-suurempaa parannusta kuin kokeet. Kokeiden osalta heikompi parannus voidaan selittää valvotun ympäristön ja ajallisten 
-rajoitusten seurauksena. Pančur ja Ciglarič mainitsevat heikon parannuksen osasyyksi testilähtöisen kehityksen 
+jälkeiset virheet vähenivät 5 \% -- 45 \%, joissain tapauksissa 50 \% -- 90 \%. Tapaustutkimukset osoittivat suurempaa 
+parannusta kuin kokeet. Kokeiden osalta heikompi parannus voidaan selittää valvotun ympäristön ja ajallisten rajoitusten 
+seurauksena. Pančur ja Ciglarič mainitsevat heikon parannuksen osasyyksi testilähtöisen kehityksen 
 vaikeuden~\cite{PC11}. Testien kirjoittaminen ennen itse toiminnallisuutta vaatii harjaantumista, jota jälkeen 
 kirjoitettujen testien osalta ei vaadita. Siksi testilähtöisen kehityksen hyödyn vaikutukset todennäköisesti ilmentyvät 
 vasta myöhemmin. Vain muutama koe ei havainnut testilähtöisellä kehityksellä olevan merkittävää vaikutusta ohjelmiston 
@@ -669,7 +665,7 @@ ulkoiseen laatuun.
 vaivannäkö testaamista varten parani. Osa tutkimuksista osoitti lopullisen ohjelmiston kehitysajan kasvavan, mutta 
 samalla osa tutkimuksista huomasi kehityksen kokonaiskustannusten vähenevän. Tuottavuuden kannalta Sfetsoksen ja 
 Stameloksen katselmoivat tutkimukset osoittivat ristiriitaisia tuloksia: osassa tuottavuus kasvoi, osassa tuottavuudelle 
-ei tapahtunut merkittäviä muutoksia, osassa tuottavuus jopa laski.
+ei tapahtunut merkittäviä muutoksia, osassa tuottavuus laski.
 
 \subsection{Pariohjelmointi}
 
@@ -680,11 +676,11 @@ virheiden määrää ja parantaa ohjelmiston suunnittelua ja laatua~\cite{SS10}.
 
     Sfetsos ja Stamelos havaitsivat pariohjelmoinnin olevan yksi merkittävim\-mistä laadullista tekijöistä käytännön 
 näkökulmasta. Koodin suunnittelu ja laatu kasvoi 15 \% -- 65 \%. Monimutkaisiin ja vaativiin ongelmiin pariohjelmointi 
-tuotti selvästi parempaa koodia kuin ohjelmointi yksin. Pariohjelmoinnin todettiin myös parantavan tiimityöskentelyn 
+tuotti olennaisesti parempaa koodia kuin ohjelmointi yksin. Pariohjelmoinnin todettiin parantavan tiimityöskentelyn 
 laatua, tiedon ja taitojen parempaa siirtymistä yksilöltä toiselle, tehokkaampia ja paremmin suunniteltuja algoritmeja, 
 moraalin kasvua ja luottavaisempia kehittäjiä.
 
-    Pariohjelmoinnin todettiin kuitenkin vaativan enemmän vaivannäköä kehittäjiltä ja näin ollen myös pariohjelmointi 
+    Pariohjelmoinnin todettiin kuitenkin vaativan enemmän vaivannäköä kehittäjiltä ja näin ollen pariohjelmointi 
 kasvatti kehitystyön kustannuksia. Tehokkuus väheni lievästi ja kehitystyön aikataulutus vaikeutui ja samalla 
 kehitystiimeissä havaittiin persoonallisuus kitkoja. Tutkimukset havaitsivat tiettyjen taito, tieto ja kokemuspiirteiden 
 sopivan paremmin pariohjelmointiin. Erityisesti persoonallisuuspiirteillä havaittiin suuri merkitys: avomieliset ja 
@@ -693,10 +689,10 @@ vastuulliset yksilöt sekä monipuoliset persoonallisuudet ja temperamentit sove
 \section{Metriikat käytänteiden tukena}
 
 Beck ym. puolustavat ketterän kehityksen manifestissa ketterän kehityksen itse organisoituvaa luonnetta~\cite{BBB01}. 
-Kun kehittäjille annetaan tarpeeksi tukea, ottavat he itse vastuun myös ohjelmiston laadullisista puolista. Jatkuva 
-hyvien käytänteiden ja suunnitteluperiaatteiden seuraaminen johtaa lopulta ohjelmiston laadun kasvuun~\cite{SS10}. 
-Tiimien tulee arvioida näiden onnistumista tarpeeksi usein, jotta mahdollisiin ongelmiin voidaan puuttua ja tiimin 
-käytänteitä hienosäätää.
+Kun kehittäjille annetaan tarpeeksi tukea, ottavat he itse vastuun ohjelmiston laadullisista puolista. Jatkuva hyvien 
+käytänteiden ja suunnitteluperiaatteiden seuraaminen johtaa lopulta ohjelmiston laadun kasvuun~\cite{SS10}. Tiimien 
+tulee arvioida näiden onnistumista tarpeeksi usein, jotta mahdollisiin ongelmiin voidaan puuttua ja tiimin käytänteitä 
+hienosäätää.
 
     Suunnittelupeli ja Sprintin suunnittelu kattavat toiminnan, jota voitaisiin verrata suoraan laadullisten
 määritelmien kehykseksi. Testilähtöinen kehitys, pariohjelmointi ja jatkuva integraatio taas paneutuvat laadullisen 
@@ -708,14 +704,14 @@ työmäärän ajallista estimointia. Käytänteiden seuraamisesta havaittiin ref
 -käytänteiden havaittiin toimivan paremmin nimenomaan pienissä kehittäjätiimeissä.
 
     Tutkimukset koodikirnusta, verkkoanalyysista ja testikattavuudesta ohjelmiston laadullisina metriikoina toivat 
-esille inhimillisen tekijän laadun takaamisessa~\cite{NB05, ZN08, MNDT09}. Kehittäjän tulee siis aktiivisesti itse 
-vaikuttaa ohjelmiston laatuun. Sfetsoksen ja Stameloksen katselmuksen pohjalta voidaan olettaa, että ketterä kehitys on 
-oivallinen käytäntö ohjelmiston laadun varmistamisessa.
+esille inhimillisen tekijän laadun takaamisessa~\cite{NB05, ZN08, MNDT09}. Kehittäjän tulee aktiivisesti itse vaikuttaa 
+ohjelmiston laatuun. Sfetsoksen ja Stameloksen katselmuksen pohjalta voidaan olettaa, että ketterä kehitys on oivallinen 
+käytäntö ohjelmiston laadun varmistamisessa.
 
     Nagappan ja Ball toivat esille koodikirnun ja ohjelmiston riippuvuuksien käyttämisen laadullisina 
 metriikoina~\cite{NB05, NB07}. Testien kirjoittaminen tulisi kanavoida näiden metriikoiden ilmaisemiin virheherkkiin 
 komponentteihin~\cite{MNDT09}. Voidaan nähdä, että testilähtöinen kehitys tukisi näiden metriikoiden tavoitteita 
-osuvasti. Nagappan ja Ball painottivat erikseen myös hyviä versionhallinnan käytäntöjä ~\cite{NB05}. Ohjelmistoon tehdyt 
+osuvasti. Nagappan ja Ball painottivat erikseen hyviä versionhallinnan käytäntöjä ~\cite{NB05}. Ohjelmistoon tehdyt 
 muutokset tulisi rekisteröidä pienissä palasissa versionhallintaan mahdollisimman aikaisin ja usein. Tällä säästetään 
 kallisarvoista kehitystyön historiaa ja mahdollistetaan ongelmatapauksissa paluu vanhoihin toimiviin koodiversioihin.
 
@@ -748,7 +744,7 @@ ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulisi ohjata laa
     Vanhojen raskaaseen ennakkosuunniteluun pohjautuvien tuotantomenetelmien, kuten vesiputousmallin, rinnalla on 
 noussut uusia ketterän kehityksen malleja. Ne painottavat yksilöitä ja yksilöiden vuorovaikutusta, toimivan ohjelmiston 
 merkitystä, asiakkaan merkitystä kehitysprosessin kriittisenä osana ja muutoksiin sopeutuvaa kehitystä~\cite{BBB01}. 
-Useat empiiriset tutkimukset tukevat ketterien kehitysmallien hyötyä merkittävänä laadullisina tekijänä~\cite{SS10}. 
+Useat empiiriset tutkimukset tukevat ketterien kehitysmallien hyötyä merkittävänä laadullisina vaikuttajana~\cite{SS10}. 
 
 % --- Back matter ---
 
