@@ -41,10 +41,13 @@
 
 % --- tktltiki2 options ---
 
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
 \title{Metriikat käytänteiden tukena ohjelmiston laadun\\arvioimisessa}
 \author{Kasper Hirvikoski}
 \date{\today}
-\level{Aine - Luonnosversio}
+\level{Aine}
 
 \begin{document}
 
@@ -66,18 +69,31 @@ suuri kuilu. Virheiden määrää ei yleensä pystytä laskemaan luotettavasti e
 asiakkaalle. Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen ohjelmiston julkaisun jälkeen on erittäin 
 kallista.
 
-    Laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää 
-kehitystyötä suuresti~\cite{NB05}. Ohjelmiston koodin tuottajana on aina ihminen, joten laadun takeeksi ei voida 
-luetella pelkästään mekaanisia laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys 
-ohjelmiston kaikissa kehitysvaiheissa.
+    Ohjelmiston kehittäminen on haastavaa. Vielä haastavampaa on kehittää laadukkaasti suunniteltu ja toteutettu 
+ohjelmisto. Käyttäjät havaitsevat laadun oikein toimivana tuotteena, mutta ennen kaikkea laadukkaasti toteutetun 
+ohjelmiston lähdekoodi helpottaa kehitysprosessia. Ongelmien korjaamisen sijaan kehittäjät voivat keskittyä olennaiseen 
+eli uusien toiminnallisuuksien toteuttamiseen. Virheitä on kuitenkin mahdotonta välttää täysin.
 
-\subsection{Laadullinen arviointi}
+    Laadun varmistamista rajaa ohjelmistokehityksessä henkilöt, aika ja raha~\cite{ZN08}. Kehittäjät kohtaavat usein 
+tiukkoja määräaikoja ja rajallisia henkilöresursseja laadun takaamiseen. Johtajat käyttävät käytännössä pelkästään 
+omakohtaisia kokemuksiaan resurssien tehokkaaseen jakamiseen. Heillä ei kuitenkaan ole läheskään aina tarvittavaa 
+kokemusta tai tietoa, joiden pohjalta he voisivat tehdä järkeviä päätöksiä ohjelmiston laadun kannalta. Tästä johtuen 
+päätökset tehdään usein johtajien odotusten mukaan ja tällöin he itse joutuvat arvioimaan laatua puutteellisin tiedoin. 
+Kriittiseksi osaksi muodostuu näin ollen kehittäjien taitojen lisäksi johtajien taidot.
+
+    Laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää 
+kehitystyötä~\cite{NB05}. Ohjelmiston koodin tuottajana on ihminen, joten ohjelmiston laatuun vaikuttuvat inhimilliset 
+tekijät. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelmiston kaikissa kehitysvaiheissa. Tämän lisäksi 
+ohjelmiston laatua voidaan arvioida mekaanisilla metriikoilla, jotka pyrkivät arvioimaan ohjelmiston komponenttien 
+laatua ja havaitsemaan kriittiset osat tuotteesta.
+
+\section{Laadullinen arviointi}
 
 ISO 9000 -standardi määrittelee ohjelmiston laadun kokonaisuutena, joka kattaa tuotteen tai palvelun piirteet, jotka 
-täyttävät ohjelmistoa vasten asetetut toiveet ja tarpeet~\cite{ISO9000}. IEEE taas määrittelee laadun arviona, kuinka 
-paljon ohjelmisto, järjestelmä, komponentti tai prosessi täyttää sille etukäteen määritellyt vaatimukset ja asiakkaan 
-sekä käyttäjän asettamat tarpeet ja odotukset~\cite{IEEE1074}. Molemmat määritelmät painottavat vahvasti asiakkaan 
-tarpeiden täyttämistä.
+täyttävät ohjelmistolle asetetut toiveet ja tarpeet~\cite{ISO9000}. IEEE taas määrittelee laadun arviona, kuinka hyvin 
+ohjelmisto, järjestelmä, komponentti tai prosessi täyttää sille etukäteen määritellyt vaatimukset ja asiakkaan sekä 
+käyttäjän asettamat tarpeet ja odotukset~\cite{IEEE1074}. Molemmat määritelmät painottavat vahvasti asiakkaan tarpeiden 
+täyttämistä.
 
     Laadulliset kriteerit on jaettu neljään osa-alueeseen: laatumalliin, ulkoisiin, sisäisiin ja käyttölaadullisiin 
 metriikoihin (quality in use metrics)~\cite{ISO25010}. Laatumalli luokittelee laadun jäsenneltynä joukkona piirteitä ja 
@@ -93,18 +109,19 @@ Käyttölaadullisuus voidaan arvioida vasta kun ohjelmisto on julkaistu käyttö
     Metriikat tarjoavat yhden tehokkaan keinon ohjelmistojen laadun arviointiin. Staattisten ja dynaamisten 
 virheenpaikannustekniikoiden johdosta virheiden laatu on muuttunut~\cite{ZN08}. Virheenpaikannustekniikoilla pyritään 
 analysoimaan ohjelmiston lähdekoodia ja havaitsemaan siitä silmäänpistävimmät ''kielioppivirheet''. Tämän ansiosta 
-suurin osa virhetietokantoihin tallennetuista raporteista on nykyään luonteeltaan semanttisia, eli virheet koostuvat 
-loogisista ongelmista~\cite{ZN08}. Nykyään metriikoiden tulee ottaa tämä huomioon.
+suurin osa virheraportointijärjestelmiin tallennetuista raporteista, joilla kuvataan ohjelmistossa havaitut virheet, 
+johtuvat pohjimmiltaan semanttisista eli loogisista ongelmista ohjelmiston koodissa~\cite{ZN08}. Nykyään metriikoiden 
+tulee ottaa tämä huomioon.
 
 \subsection{Ohjelmiston muutoksien laadullinen vaikutus}
 
 Nagappan ja Ball esittävät suhteellisen koodikirnu-tekniikan järjestelmän virhetiheyden ennakoimiseen~\cite{NB05}. 
 Koodikirnu (code churn) mittaa ja ilmaisee määrällisesti ohjelmiston komponentteihin kohdistuvia muutoksia tietyn 
-ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia mittayksiköitä, jotka he rinnastavat muihin 
-muuttujiin kuten komponenttien kokoon tai muokkauksen ajalliseen pituuteen. Käyttäen apuna tilastollisia 
-regressiomalleja, he osoittavat suhteellisten koodikirnu-mittojen kyvyn havaita järjestelmän virhetiheyden paremmin kuin 
-ehdottomien mittojen. Väittämien tueksi he suorittivat tapaustutkimuksen, jonka kohteena oli Windows Server 2003. 
-Samalla he osoittavat, että suhteellinen koodikirnu pystyy paikallistamaan virheherkät komponentit 89 \% tarkkuudella.
+ajanjakson aikana. Nagappan ja Ball tuovat esille joukon suhteellisia mittayksiköitä, jotka he rinnastavat muuttujiin 
+kuten komponenttien kokoon tai muokkauksen ajalliseen pituuteen. Käyttäen apuna tilastollisia regressiomalleja, he 
+osoittavat, että suhteelliset koodikirnu-mitat havaitsevat järjestelmän virhetiheyden paremmin kuin ehdottomat mitat. 
+Tutkimuksessaan he suorittivat tapaustutkimuksen, jonka kohteena oli Windows Server 2003. Samalla he osoittavat, että 
+suhteellinen koodikirnu pystyy paikallistamaan virheherkät komponentit 89 \% tarkkuudella.
 
     Monimutkaisuusmetriikoilla mitataan tyypillisesti ohjelmiston virhealttiutta~\cite{ZN08}. Metriikat ovat muodostettu 
 esimerkiksi komponentin koodirivien, muuttujien ja metodien lukumäärästä. Niiden perimmäinen tarkoitus on arvioida 
@@ -115,9 +132,9 @@ komponenttien välisiin vuorovaikutussuhteisiin.
 \subsection{Ohjelmiston riippuvuuksien laadullinen vaikutus}
 
     Ohjelmiston komponentit riippuvat lähes aina toisista komponenteista, jolloin ne käyttävät niiden tarjoamia 
-palveluita tuottaakseen oman toiminnallisuutensa. Järjestelmän riippuvuudet voidaankin esittää matalan tason verkkoina, 
-jossa komponenttien keskinäiset suhteet paljastuvat~\cite{ZN08}. Niistä ilmenee mitä osia esimerkiksi komponentti A 
-tarvitsee toiminnalleen ja toisinpäin, mitkä osat tarvitsevat A:n palveluita.
+palveluita tuottaakseen oman toiminnallisuutensa. Järjestelmän riippuvuudet voidaan esittää verkkoina, 
+joissa komponenttien keskinäiset suhteet paljastuvat~\cite{ZN08}. Niistä ilmenee mitä osia komponentit tarvitsevat 
+toiminnalleen sekä mitkä osat tarvitsevat komponentin palveluita.
 
     Zimmermann ja Nagappan esittävät verkkoanalyysin suorittamista komponenttien riippuvuusverkoille~\cite{ZN08}. 
 Verkkoanalyysillä voidaan paikallistaa ohjelmiston kriittiset komponentit, jotka ovat muita virheherkempiä. Tämä 
@@ -129,42 +146,44 @@ vuorovaikutukset.
 arvioimisessa. Verkkoanalyysillä saavutetaan heidän tapaustutkimuksensa tilastollisten analyysien mukaan 10 \% parempi 
 hyötyaste kuin pelkillä komponenttien monimutkaisuutta mittaavilla metriikoilla. Zimmermann ja Nagappan havaitsivat 
 lisäksi, että verkkometriikat pystyvät identifioimaan 60 \% komponenteista, joita ohjelmiston kehittäjät pitivät 
-kriittisinä ohjelmiston kannalta. Tämä on kaksi kertaa enemmän kuin tavallisilla monimutkaisuusmetriikoilla 
-saavutettavat tulokset.
+kriittisinä ohjelmiston kannalta.
 
 \subsection{Ohjelmiston testauksen merkitys}
 
 Ohjelmiston kehityksessä koodin testaaminen on kriittinen osa laadun takaamista. Testaamisessa ohjelmiston lähdekoodi 
 alistetaan testitapauksille, joiden tarkoitus on kattaa ja varmistaa mahdollisimman hyvin kaikki loogiset tilanteet, 
-jotka ohjelmisto käy tietyssä tilanteessa läpi. Parhaassa tapauksessa testit löytävät virheet ohjelmistosta ennen kuin 
-se julkaistaan asiakkaalle.
+jotka ohjelmisto käy läpi. Parhaassa tapauksessa testit löytävät virheet ohjelmistosta ja kehittäjät pystyvät korjaamaan 
+ne ennen kuin tuote julkaistaan asiakkaalle. Näin ohjelmiston jatkokehitys helpottuu ja tuotteen käyttäjät säästyvät 
+turhautumisilta.
 
     Mockus, Nagappan ja Dinh-Trong tutkivat testien laadullista arviointia keinona havaita virheherkkiä komponentteja 
 ohjelmistosta~\cite{MNDT09}. Testien analysoimisessa tulisi keskittyä nimenomaan niiden kykyyn havaita mahdollisia 
-virheitä ohjelmistosta. Taitavat kehittäjät todennäköisesti tuottavat laadukkaampia testejä, mutta testien arvioiminen 
-määrällisesti ja laadullisesti on kannattavampaa toteuttaa automaattisesti. Yleisin testien tehokkuutta arvioiva mittari 
-on testikattavuus.
+virheitä ohjelmistosta. Taitavat kehittäjät todennäköisesti tuottavat laadukkaampia testejä, mutta testien tehokkuuden 
+ja laadun arvioiminen on järkevämpää toteuttaa automaattisesti. Yleisin testien tehokkuutta arvioiva mittari on 
+testikattavuus.
 
-    Testikattavuuden lajeja on useita. Yksinkertaisista luokka-, funktio/metodi- ja käskykattavuuksista kehittyneisiin 
-haara- ja polkukattavuuksiin. Nimensä mukaan kukin laji testaa lähdekoodin eri osa-alueita. Funktio-/metodikattavuu\-della 
-kartoitetaan testien kattavuutta yhden toiminnallisuuden osalta, luokkakattavuudella taas näistä muodostuvan 
-kokonaisuuden testien kattavuutta. Taustalla on olettamus, että jos jokin yksittäinen looginen ehto tai polku ei ole 
-katettu vähintään yhdellä testillä, ei sen mahdollisesti sisältämiä virheitä pystytä havaitsemaan~\cite{MNDT09}.
+    Testikattavuuden lajeja on useita. Yksinkertaisista luokka-, funktio-, metodi- ja käskykattavuuksista kehittyneisiin 
+haara- ja polkukattavuuksiin. Nimensä mukaan kukin laji testaa lähdekoodin eri osa-alueita. Funktio- ja 
+metodikattavuu\-della kartoitetaan testien kattavuutta yhden toiminnallisuuden osalta, luokkakattavuudella taas näistä 
+muodostuvan kokonaisuuden testien kattavuutta. Taustalla on olettamus, että jos jokin yksittäinen looginen ehto tai 
+polku ei ole katettu vähintään yhdellä testillä, ei sen mahdollisesti sisältämiä virheitä pystytä 
+havaitsemaan~\cite{MNDT09}.
 
     Voidaankin olettaa, että suurempi testikattavuus löytää todennäköisesti enemmän virheitä ja takaa näin ollen 
 paremman laadun. Kattavuus kuvaa yksinkertaisesti osuutta siitä kuinka monta riviä ohjelmakoodia on katettu sitä 
 testaavalla testikoodilla. Kattavuudella ei kuitenkaan pystytä arvioimaan kuinka todennäköisesti nämä rivit aiheuttavat 
-virheen, siksi suuri testikattavuus ei yksinään takaa laatua. Testikattavuus auttaa kuitenkin merkittävästi laadun 
-takaamisessa. Muita metriikoita tulisi käyttää kohdentamaan testejä ohjelmiston kriittisiin 
+virheen, siksi suuri testikattavuus ei yksinään takaa laatua. Testikattavuus saattaa vääristyä helposti testeillä, jotka 
+eivät todellisuudessa tarkista ohjelmiston koodin varsinaista toimintaa. Testikattavuus auttaa kuitenkin merkittävästi 
+laadun takaamisessa. Muita metriikoita tulisi käyttää kohdentamaan testejä ohjelmiston kriittisiin 
 osa-alueisiin~\cite{NB07, MNDT09}.
 
-\subsection{Ohjelmiston koodin takana ihminen}
+\subsection{Ohjelmiston koodin kehittäjänä ihminen}
 
-Ohjelmiston koodin takana on lopulta aina ihminen.  Laadun takeeksi ei voida luetella pelkästään mekaanisia laatua 
-arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, joten 
-ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulisi ohjata laadukasta kehitystä.
+Laadun takeeksi ei voida luetella pelkästään mekaanisia laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri 
+laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. 
+Niiden tulisi ohjata laadukasta kehitystä.
 
-    Vanhojen raskaaseen ennakkosuunniteluun pohjautuvien tuotantomenetelmien, kuten vesiputousmallin, rinnalla on 
+    Vanhojen raskaaseen ennakkosuunniteluun pohjautuvien tuotantomenetelmien, kuten vesiputousmallin, rinnalle on 
 noussut uusia ketterän kehityksen malleja. Ne painottavat yksilöitä ja yksilöiden vuorovaikutusta, toimivan ohjelmiston 
 merkitystä, asiakkaan merkitystä kehitysprosessin kriittisenä osana ja muutoksiin sopeutuvaa kehitystä~\cite{BBB01}. 
 Ketterässä kehityksessä ohjelmisto tuotetaan iteratiivisesti, pala kerrallaan, sopeutuen uusiin tavoitteisiin. 
@@ -175,7 +194,10 @@ merkittävänä laadullisina vaikuttajana~\cite{SS10}.
 \section{Metriikat}
 
 Metriikat tarjoavat yhden tehokkaan keinon ohjelmistojen laadun arviointiin. Metriikoita on lukuisia, näistä muutamia 
-ovat koodikirnu, verkkoanalyysi ja testikattavuus.
+ovat koodikirnu, verkkoanalyysi ja testikattavuus. Koodikirnulla arvioidaan ohjelmiston muutoksien vaikutusta 
+ohjelmiston virheherkkyyteen, verkkoanalyysillä tutkitaan ohjelmiston komponenttien riippuvuuksien vaikutusta 
+ohjelmiston virhealttiuteen ja testikattavuudella analysoidaan ohjelmiston lähdekoodin testien tehokkuutta ja 
+laadukkuutta.
 
 \subsection{Koodikirnu}
 
@@ -238,8 +260,6 @@ ennakoimiseen.
     
     Suurempi osa käsiteltyjä koodirivejä suhteessa yhteenlaskettuun koodirivien määrän vaikuttaa yksittäisen ohjelman 
     virhetiheyteen.
-    
-    \newpage
     
     \item {\bf Poistettujen koodirivien määrä / Yhteenlaskettu koodirivien määrä}
     
@@ -340,7 +360,7 @@ määrä keskinäisiä riippuvuuksia, ovat yleisesti herkempiä virheille.
 
     Riippuvuus ohjelmistoissa on suunnattu yhteys kahden koodiosan kuten lausekkeen tai metodin välillä. Riippuvuudet 
 voidaan erotella toisistaan: tietoriippuvuus on määrittelyiden ja arvojen välinen yhteys ja kutsuriippuvuus on 
-funktio-/metodimäärittelyiden ja niitä kutsuvien paikkojen välinen yhteys.
+funktio- ja metodimäärittelyiden ja niitä kutsuvien paikkojen välinen yhteys.
 
     Zimmermann ja Nagappan löysivät useita piirteitä verkoista, joilla keskeisessä roolissa olevat komponentit voidaan 
 havaita samankaltaisista aliverkoista. Yksi on niin kutsuttu tähtipiirre (star pattern), joka on komponenteilla joilla 
@@ -442,6 +462,8 @@ Ohjelmiston täytyy noudattaa täysin olio-paradigmaa, jotta metriikoilla olisi 
     Zimmermann ja Nagappan pitävät verkkoanalyysin suorittamista ohjelmiston komponenttien riippuvuusverkoille 
 tehokkaana tapana arvioida ohjelman virheherkkyyttä.\newline
 
+\newpage
+
 \noindent He päätyivät tutkimuksessaan kolmeen johtopäätökseen:
 
 \begin{enumerate}
@@ -496,8 +518,8 @@ testikattavuuden ja julkaisun jälkeisten virheiden korrelaation selvittämiseen
 
     Testikattavuuden kannalta olisi mielenkiintoista tietää kuinka suuri osa itse testeistä havaitsi virheet. Suurin osa 
 tästä työstä tapahtuu kuitenkin kehittäjän toimesta kehitysvaiheessa yksikkötestauksen tasolla. Viitteet tästä eivät 
-tallennu versionhallintaan eikä virheitä ilmoiteta virhetietokantoihin. Tämän korrelaation tutkiminen on valitettavan 
-haasteellista.
+tallennu versionhallintaan eikä virheitä ilmoiteta virheraportointijärjestelmiin. Tämän korrelaation tutkiminen on 
+valitettavan haasteellista.
 
     Mockus ym. havaitsivat tutkimuksessaan, että lähdekoodin monimutkaisuus, ohjelmiston käyttökohde, kehittäjien 
 kokemus ja etätyöskentely vaikuttavat ohjelmiston virheherkkyyteen sekä testien kattavuuteen. Vähemmän kokeneilla 
@@ -505,7 +527,7 @@ kehittäjillä ja etätyöskentelyssä testikattavuuden merkitys kasvaa merkitt�
 
 \subsubsection{Testikattavuuden vaikutus ohjelmiston virheherkkyyteen}
 
-Mockus ym. tutkimus analysoi versionhallintajärjestelmistä, virhetietokannoista ja testikattavuudesta saatavia tietoja 
+Mockus ym. tutkimus analysoi versionhallinta- ja virheraportointijärjestelmistä sekä testikattavuudesta saatavia tietoja 
 arvioidakseen kunkin osa-alueen vaikutusta ohjelmiston virheherkkyyteen. Samalla ohjelmistoista laskettiin 
 monimutkaisuusmetriikoita ja tutkittiin lähdekoodin muutosten määrää. Aikaisempien tutkimusten mukaan muutosten määrä on 
 varteenotettava mittari virheherkkyyden arvioimiseen, siksi testikattavuus on syytä suhteuttaa siihen. Tilastollisten 
@@ -586,8 +608,9 @@ käyttäjäkuntien koko oli eri. Voidaankin olettaa, että testikattavuus sovelt
 
 \section{Kehittäjien käytänteet}
 
-Ohjelmiston koodin takana on aina ihminen: kehittäjien käytänteillä ja ohjelmiston kehitysmalleilla on suuri laadullinen 
-merkitys. Avainkysymykseksi nousee paikallistaa ne käytänteet, joilla on ratkaiseva yhteys ohjelmiston laatuun.
+Ohjelmiston koodin tuottajana on aina ihminen: kehittäjien käytänteillä ja ohjelmiston kehitysmalleilla on suuri 
+laadullinen merkitys. Avainkysymykseksi nousee paikallistaa ne käytänteet, joilla on ratkaiseva yhteys ohjelmiston 
+laatuun.
 
     Vanhojen raskaaseen ennakkosuunniteluun pohjautuvien menetelmien, kuten vesiputousmallin, rinnalla on noussut uusia 
 ketterän kehityksen malleja. Sfetsos ja Stamelos suorittivat katselmuksen ketterän kehityksen empiirisistä 
@@ -745,9 +768,9 @@ virheitä ohjelmistosta. Taustalla on olettamus, että jos jokin yksittäinen lo
 vähintään yhdellä testillä, ei sen mahdollisesti sisältämiä virheitä pystytä havaitsemaan. Voidaankin olettaa, että 
 suurempi testikattavuus löytää todennäköisesti enemmän virheitä ja takaa näin ollen paremman laadun.
 
-    Ohjelmiston koodin takana on lopulta aina ihminen.  Laadun takeeksi ei voida luetella pelkästään mekaanisia laatua 
-arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, joten 
-ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulisi ohjata laadukasta kehitystä.
+    Ohjelmiston koodin kehittäjänä on lopulta aina ihminen.  Laadun takeeksi ei voida luetella pelkästään mekaanisia 
+laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, 
+joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulisi ohjata laadukasta kehitystä.
 
     Vanhojen raskaaseen ennakkosuunniteluun pohjautuvien tuotantomenetelmien, kuten vesiputousmallin, rinnalla on 
 noussut uusia ketterän kehityksen malleja. Ne painottavat yksilöitä ja yksilöiden vuorovaikutusta, toimivan ohjelmiston 
