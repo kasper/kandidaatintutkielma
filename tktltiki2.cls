@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{tktltiki2}[2013/01/09 v1.0 Template for theses and seminar papers at University of Helsinki CS department]
+\ProvidesClass{tktltiki2}[2013/02/15 v1.02 Template for theses and seminar papers at University of Helsinki CS department]
 \RequirePackage{calc}
 \RequirePackage[pass]{geometry}[2010/09/12 v5.6 Page Geometry]
 \RequirePackage{babel}
@@ -37,7 +37,7 @@
 
 % -- Setup for string commands --
 
-\newcommand{\@university}{University of Helsinki}
+\newcommand{\@university}{UNIVERSITY OF HELSINKI}
 \newcommand{\@faculty}{Faculty of Science}
 \newcommand{\@department}{Department of Computer Science}
 \newcommand{\@subject}{Computer Science}
@@ -81,18 +81,18 @@
     \renewcommand{\@dateofacceptance}{hyv\"aksymisp\"aiv\"a}%
     \renewcommand{\@grade}{arvosana}%
     \renewcommand{\@instructor}{arvostelija}%
-    \university{Helsingin Yliopisto}
+    \university{HELSINGIN YLIOPISTO}
     \faculty{Matemaattis-luonnontieteellinen}
-    \department{Tietojenkäsittelytieteen laitos}
-    \subject{Tietojenkäsittelytiede}
+    \department{Tietojenk\"asittelytieteen laitos}
+    \subject{Tietojenk\"asittelytiede}
 }{}
 \iflanguage{swedish}{
     \renewcommand{\@dateofacceptance}{godk.datum}%
     \renewcommand{\@grade}{vitsord}%
     \renewcommand{\@instructor}{bed\"omare}%
-    \university{Helsingfors universitet}
+    \university{HELSINGFORS UNIVERSITET}
     \faculty{Matematisk-naturvetenskapliga fakulteten}
-    \department{Institutionen för datavetenskap}%
+    \department{Institutionen f\"or datavetenskap}%
     \subject{Datavetenskap}
     \city{Helsingfors}
 }{}
@@ -177,7 +177,7 @@
     }
 }
 
-% -- "Tiivistelmäsivu" --
+% -- "Tiivistelmasivu" --
 % the following code is mostly inherited from the Old Ones
 % approach with caution
 

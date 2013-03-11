@@ -3,6 +3,7 @@
 % --- Packages ---
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{amsfonts,amsmath,amssymb,amsthm,booktabs,color,enumitem,graphicx}
@@ -19,7 +20,7 @@
 \selectbiblanguage{finnish}
 
 % Add bibliography to the table of contents
-\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[nottoc]{tocbibind}
 
 % tocbibind renames the bibliography, use the following to change it back
 \settocbibname{Lähteet}
@@ -781,7 +782,7 @@ Useat empiiriset tutkimukset tukevat ketterien kehitysmallien hyötyä merkittä
 
 % --- Back matter ---
 
-\bibliographystyle{babalpha}
+\bibliographystyle{babalpha-lf}
 \bibliography{../lahteet}
 
 \end{document}
