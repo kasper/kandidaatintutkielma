@@ -14,9 +14,9 @@ toiminnallisuuksien toteuttamiseen. Virheitä on mahdotonta välttää täysin.
 Laadun varmistamista rajaa ohjelmistokehityksessä henkilöt, aika ja raha [BBM96, ZN08]. Kehittäjät kohtaavat usein 
 tiukkoja määräaikoja ja rajallisia henkilöresursseja laadun takaamiseen. Johtajat käyttävät käytännössä pelkästään 
 omakohtaisia kokemuksiaan resurssien tehokkaaseen jakamiseen. Heillä ei läheskään aina ole tarvittavaa kokemusta tai 
-tietoa, joiden pohjalta he voisivat tehdä järkeviä päätöksiä ohjelmiston laadun kannalta. Tästä johtuen päätökset 
-tehdään usein johtajien odotusten mukaan ja näin ollen he joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi 
-osaksi muodostuu siksi kehittäjien taitojen lisäksi johtajien taidot.
+tietoa, joiden pohjalta he voivat tehdä järkeviä päätöksiä ohjelmiston laadun kannalta. Tästä johtuen päätökset tehdään 
+usein johtajien odotusten mukaan ja näin ollen he joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osaksi 
+muodostuu siksi kehittäjien taitojen lisäksi johtajien taidot.
 
 Laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää 
 kehitystyötä [BBM96, NB05]. Ohjelmiston koodin tuottajana on ihminen, joten ohjelmiston laatuun kohdistuu inhimilliset 
