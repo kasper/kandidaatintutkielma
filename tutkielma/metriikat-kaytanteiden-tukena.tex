@@ -88,7 +88,7 @@ inhimilliset tekijät. Kehittäjän käytänteillä on suuri laadullinen merkity
 lisäksi ohjelmiston laatua voidaan arvioida mekaanisilla metriikoilla, jotka pyrkivät arvioimaan ohjelmiston 
 komponenttien laatua ja havaitsemaan kriittiset osat tuotteesta.
 
-\section{Laadullinen arviointi}
+\section{Ohjelmistojen laadullinen arviointi}
 
 ISO 9000 -standardi määrittelee ohjelmiston laadun kokonaisuutena, joka kattaa tuotteen tai palvelun piirteet, jotka 
 täyttävät ohjelmistolle asetetut toiveet ja tarpeet~\cite{ISO9000}. IEEE taas määrittelee laadun arviona, kuinka hyvin 
@@ -114,7 +114,7 @@ suurin osa virheraportointijärjestelmiin tallennetuista raporteista, joilla kuv
 johtuvat pohjimmiltaan semanttisista eli loogisista ongelmista ohjelmiston koodissa~\cite{ZN08}. Nykyään metriikoiden 
 tulee ottaa tämä huomioon.
 
-\subsection{Ohjelmiston muutoksien laadullinen vaikutus}
+\subsection{Muutoksien laadullinen vaikutus}
 
 Nagappan ja Ball esittävät suhteellisen koodikirnu-tekniikan järjestelmän virhetiheyden ennakoimiseen~\cite{NB05}. 
 Koodikirnu (code churn) mittaa ja ilmaisee määrällisesti ohjelmiston komponentteihin kohdistuvia muutoksia tietyn 
@@ -130,7 +130,7 @@ kuinka monimutkainen jokin ohjelmiston komponentti on. Taustalla on yksinkertain
 ohjelmiston virheherkkyyttä~\cite{CK94, BBM96, NB05, NB07, ZN08, MNDT09}. Monimutkaisuusmetriikat keskittyvät kuitenkin 
 harvoin komponenttien välisiin vuorovaikutussuhteisiin.
 
-\subsection{Ohjelmiston riippuvuuksien laadullinen vaikutus}
+\subsection{Riippuvuuksien laadullinen vaikutus}
 
     Ohjelmiston komponentit riippuvat lähes aina toisista komponenteista, jolloin ne käyttävät niiden tarjoamia 
 palveluita tuottaakseen oman toiminnallisuutensa. Järjestelmän riippuvuudet voidaan esittää verkkoina, 
@@ -149,7 +149,7 @@ hyötyaste kuin pelkillä komponenttien monimutkaisuutta mittaavilla metriikoill
 lisäksi, että verkkometriikat pystyvät identifioimaan 60 \% komponenteista, joita ohjelmiston kehittäjät pitivät 
 kriittisinä ohjelmiston kannalta.
 
-\subsection{Ohjelmiston testauksen merkitys}
+\subsection{Testauksen merkitys}
 
 Ohjelmiston kehityksessä koodin testaaminen on kriittinen osa laadun takaamista. Testaamisessa ohjelmiston lähdekoodi 
 alistetaan testitapauksille, joiden tarkoitus on kattaa ja varmistaa mahdollisimman hyvin kaikki loogiset tilanteet, 
@@ -184,7 +184,7 @@ lähdekoodin syntaksia muuttamalla se tutkii testien laatua ja tehokkuutta havai
 lähdekoodissa. Yksinkertaisten syntaksimuutosten avulla mutaatiotestaus pystyy muodostamaan virheellisiä 
 mutanttiversioita ohjelmistosta, joiden ei pitäisi mennä testeistä läpi.
 
-\subsection{Ohjelmiston koodin kehittäjänä ihminen}
+\subsection{Koodin kehittäjänä ihminen}
 
 Laadun takeeksi ei voida luetella pelkästään mekaanisia laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri 
 laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. 
@@ -252,7 +252,7 @@ kyseiset mittarit eivät välttämättä tuota toivottua tulosta. Näin ollen mi
 ristiriitaisuuksien havaitsemiseksi. Johtopäätöksiin päätyminen on hankalaa empiirissä tutkimuksissa, koska prosessien 
 taustalla on usein laajoja kontekstisidonnaisia tekijöitä.
 
-\subsubsection{Ohjelmiston virheherkkyyteen vaikuttavat mitat}
+\subsubsection{Ohjelmiston virheherkkyyteen vaikuttavat koodikirnumitat}
 
 Nagappan ja Ball listaavat seuraavat ehdottomat mitat koodikirnun pohjaksi. Nämä muodostavat suhteellisille mitoille 
 vertailukohdat ohjelmiston virheherkkyyden analysoimisessa. Ehdottomat mitat eivät yksinään tuota luotettavaa tulosta.
@@ -812,7 +812,7 @@ johtajien odotusten mukaan ja tällöin he itse joutuvat arvioimaan laatua puutt
 muodostuu näin ollen johtajien taito. On hyvin todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso 
 kärsivät tästä.
 
-\subsection{Kehittäjien tuki ja vastuu}
+\subsection{Kehittäjien tuki ja vastuun antaminen}
 
 Beck ym. puolustavat ketterän kehityksen manifestissa ketterän kehityksen itse organisoituvaa luonnetta~\cite{BBB01}. 
 Kun kehittäjille annetaan tarpeeksi tukea, ottavat he itse vastuun ohjelmiston laadullisista puolista. Jatkuva hyvien 
@@ -840,7 +840,7 @@ ohjelmiston laatua Sfetsoksen ja Stameloksen katselmuksen mukaan. Suunnittelupel
 työmäärän ajallista estimointia. Käytänteiden seuraamisesta havaittiin refaktoroinnin ja tuottavuuden kasvu. XP 
 -käytänteiden havaittiin toimivan paremmin nimenomaan pienissä kehittäjätiimeissä.
 
-\subsection{Hyvät ohjelmointimallit ja tavat}
+\subsection{Hyvät ohjelmointikäytänteet}
 
 Lopulta laadukkaan ohjelmiston tekee laadukkaat kehittäjät. Ulkoinen ja sisäinen laatu lähtee siitä, että ohjelmisto 
 suunnitellaan, toteutetaan ja testataan käyttäen hyväksi todettuja ohjelmointitapoja ja malleja. Nämä vaihtelevat 
@@ -862,7 +862,7 @@ muita virheherkempiä ja huomattavasti vaikeampia ylläpitää. Varsinkin toistu
 pitäisi välttää~\cite{FFS12}. Toisaalta koodihajujen ja heikomman ylläpidettävyyden yhteys on jokseenkin 
 kyseenalainen~\cite{SYAMD12}. Koodihajut eivät välttämättä lisää kehityksen työmäärää.
 
-\subsection{Kehityksen varmistaminen}
+\subsection{Kehityksen laadullinen varmistaminen}
 
 Tutkimukset koodikirnusta, verkkoanalyysista ja testikattavuudesta ohjelmiston laadullisina metriikoina toivat esille 
 inhimillisen tekijän laadun takaamisessa~\cite{NB05, ZN08, MNDT09}. Kehittäjän tulee aktiivisesti itse vaikuttaa 
