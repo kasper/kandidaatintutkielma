@@ -318,7 +318,7 @@ verrattuna todellisen virhetiheyden ennakoimisessa~\cite{NB05}.
     sitä tietoa, että yksittäisiä tiedostoja ei käsitellä toistuvasti pienten korjausten takia. Suurempi osuus 
     käsiteltyjä ja poistettuja koodirivejä käsittelyä kohden ennakoi sitä, että muutoksiin vaaditaan pitempi 
     ajanjakso. Muutoksia kohdistuu esimerkiksi jokaista viikkoa kohden sitä enemmän. Muussa tapauksessa suuri määrä 
-    muutoksia on saattanut kohdistua hyvin lyhyeen ajanjaksoon, joka ennakoi suurempaa virhetiheyttä.
+    muutoksia on saattanut kohdistua lyhyeen ajanjaksoon, joka ennakoi suurempaa virhetiheyttä.
 
 \end{enumerate}
 
@@ -436,11 +436,11 @@ ilmoitettuihin virheisiin~\cite{ZN08}.
     Yleisin verkkomitoista on solmun keskeisyys. Sillä pyritään havaitsemaan komponentit jotka ovat suotuisassa 
     asemassa, eli useat muut komponentit riippuvat kyseisestä komponentista. Keskeisyyttä voidaan mitata riippuvuuksien 
     määrällä, komponenttien riippuvuuksien etäisyyksillä toisistaan ja komponentista johtavien riippuvuuspolkujen 
-    piirteillä. Mikäli komponentti riippuu hyvin suuresta määrästä toisia komponentteja, on se todennäköisesti muita 
+    piirteillä. Mikäli komponentti riippuu suuresta määrästä toisia komponentteja, on se todennäköisesti muita 
     komponentteja virheherkempi.
     
-    Komponentit, joiden riippuvuuksien välillä on hyvin lyhyet polut, voidaan todeta olevan muita virhealttiimpia. 
-    Muutokset näihin komponentteihin yleensä leviävät komponenttien riippuvuuksiin~\cite{ZN08}.
+    Komponentit, joiden riippuvuuksien välillä on lyhyet polut, voidaan todeta olevan muita virhealttiimpia. Muutokset 
+    näihin komponentteihin yleensä leviävät komponenttien riippuvuuksiin~\cite{ZN08}.
     
     Keskeisyydellä on myös vastakkainen vaikutus. Keskeisyys saattaa tehdä komponenteista vähemmän 
     virheherkkiä~\cite{ZN08}. Oletettavasti näihin komponentteihin on kehitystyössä panostettu enemmän, joka parantaa 
@@ -547,10 +547,10 @@ varsinkaan laadullisista näkökulmista. Testikattavuutta tulee ohjata komponent
 Olennaisesti kriittisempiä osia pitää painottaa testeissä, unohtamatta siltikään pienemmissä osissa olevia 
 komponentteja.
 
-    Ongelmana on se, että vakavimmat virheet voidaan havaita jo hyvin pienellä testikattavuudella. Vaikka jokin 
-yksittäinen rivi lähdekoodista on katettu testeillä, ei se takaa sitä, että tämä testi pystyy havaitsemaan kyseisen 
-rivin mahdollisesti aiheuttamia virheitä. On kohtuullista odottaa, että suurempi testikattavuus lisää todennäköisyyttä, 
-että nämä tilanteet tulevat katettua.
+    Ongelmana on se, että vakavimmat virheet voidaan havaita jo pienellä testikattavuudella. Vaikka jokin yksittäinen 
+rivi lähdekoodista on katettu testeillä, ei se takaa sitä, että tämä testi pystyy havaitsemaan kyseisen rivin 
+mahdollisesti aiheuttamia virheitä. On kohtuullista odottaa, että suurempi testikattavuus lisää todennäköisyyttä, että 
+nämä tilanteet tulevat katettua.
 
     Eri ohjelmistot kehitetään lähtökohtaisesti eri tarkoituksiin, eri kehittäjien ja testaajien toimesta. 
 Testikattavuus on tärkeä suhteellistaa näihin olosuhteisiin. Kontekstit ovat harvemmin samoja. Kokeneet kehittäjät 
@@ -583,7 +583,7 @@ Testikattavuuden pätevyyteen vaikuttaa samat piirteet, jotka vaikuttivat koodik
 Empiiristä tutkimuksista on vaikea tehdä yleisiä päätelmiä niiden kontekstisidonnaisen luonteen takia. Tutkimuksen 
 pätevyyttä tukevoittaa se, että Mockuksen ym. tapaustutkimuksessa tutkittiin kahta täysin erilaista ohjelmistoa. 
 Ohjelmistojen takana oli eri organisaatio, sovellusala, ohjelmointikieli ja koko. Samalla kehittäjätiimien ja 
-käyttäjäkuntien koko oli eri. Voidaan olettaa, että testikattavuus soveltuu hyvin muihin ohjelmistoihin.
+käyttäjäkuntien koko oli eri. Voidaan olettaa, että testikattavuus soveltuu muihin ohjelmistoihin.
 
 \subsection{Mutaatiotestaus}
 
@@ -604,10 +604,9 @@ Valitut mutantit ajetaan ohjelmiston testitapausten läpi ja samalla tutkitaan h
 toiminnallisuuden.
 
     Ideana on, että mitä suuremman määrän mutanttien aiheuttamia virheitä testitapaukset löytävät, sitä parempia ne ovat 
-laadullisesti~\cite{YH11}. Mutaatiotestaus on hyvin monikäyttöinen metriikka ohjelmiston testitapausten arvioimiseen. 
-Sitä voidaan käyttää yksikkö-, integraatio- ja määritelmätason testeihin. Mutaatiotestaus soveltuu hyvin eri 
-käyttötapauksiin perusohjelmistojen lisäksi kuten tietokoneympäristöjen, web-sovellusten, verkkojen ja turvallisuuden 
-arvioimiseen.
+laadullisesti~\cite{YH11}. Mutaatiotestaus on monikäyttöinen metriikka ohjelmiston testitapausten arvioimiseen. Sitä 
+voidaan käyttää yksikkö-, integraatio- ja määritelmätason testeihin. Mutaatiotestaus soveltuu eri käyttötapauksiin 
+perusohjelmistojen lisäksi kuten tietokoneympäristöjen, web-sovellusten, verkkojen ja turvallisuuden arvioimiseen.
 
     Mutaatiotestauksen ongelmaksi muodostuu mahdollisten mutanttien valtava määrä. Jokaiselle syntaktiselle muutokselle 
 ei ole järkevää saati mahdollista muodostaa mutanttia. Olio-ohjelmointi lisää haastavuutta sillä se tuo paljon korkean 
@@ -617,10 +616,10 @@ ei voida kuitenkaan automaattisesti päätellä sillä ohjelmien yhtäläisyys o
 tulee valita järkevästi vain osa mutanteista ja suorittaa nämä tehokkaasti. Ongelmaan on ehdotettu useita eri 
 ratkaisuja~\cite{YH11}.
 
-    Ohjelmoijat ovat usein täysin päteviä tuottamaan koodia joka on vähintään hyvin lähellä tarkoitettua 
-toiminnallisuutta. Virheet lähdekoodissa ovat usein hyvin pieniä. On syytä olettaa, että mutaatiotestauksen tarvitsee 
-keskittyä vain lähimpiin syntaksivirheisiin. Yleisimmät mutaatio-operaattorit muuttavat, lisäävät sekä poistavat 
-muuttujia ja ehtolauseita. Näitä ovat esimerkiksi \emph{ja} -operaattoreiden muuttaminen \emph{tai} -operaatioiksi.
+    Ohjelmoijat ovat usein täysin päteviä tuottamaan koodia joka on vähintään lähellä tarkoitettua toiminnallisuutta. 
+Virheet lähdekoodissa ovat usein pieniä. On syytä olettaa, että mutaatiotestauksen tarvitsee keskittyä vain lähimpiin 
+syntaksivirheisiin. Yleisimmät mutaatio-operaattorit muuttavat, lisäävät sekä poistavat muuttujia ja ehtolauseita. Näitä 
+ovat esimerkiksi \emph{ja} -operaattoreiden muuttaminen \emph{tai} -operaatioiksi.
 
 Vaikka mutaatiotestausta on tutkittu erittäin kattavasti, on sen käytäntöön soveltamisessa vielä haasteita. 
 Mutaatiotestausta voitaisiin käyttää hyödyksi kattavammin testitapausten ja testikehysten parantamisessa~\cite{YH11}. 
@@ -644,8 +643,8 @@ varmistamaan laadullisesti kehitystyötä. Ketterä kehitys huomioi nimenomaan a
     Asiakkaan tarpeet tulee kartoittaa ja taata koko kehitysjakson aikana. Lopulta tuotettavan tuotteen pitää tuoda 
 arvoa asiakkaalle. Ohjelmiston vaatimuksia on vaikea määrittää kattavasti heti alusta lähtien, siksi ketterässä 
 prosessissa painotetaan muutoksien hyväksymistä. Ohjelmiston kehitys saattaa olla pitkäaikainen prosessi, tilanteet ja 
-käyttötarkoitukset muuttuvat prosessin aikana. Asiakas saattaa havaita ohjelmiston kannalta tärkeitä asioita hyvin 
-myöhään kehityksessä.
+käyttötarkoitukset muuttuvat prosessin aikana. Asiakas saattaa havaita ohjelmiston kannalta tärkeitä asioita myöhään 
+kehityksessä.
 
 \subsection{Ketterä kehitys}
 
@@ -674,7 +673,7 @@ kokonaisuuden~\cite{Kn07}.
 suoritettu XP:n käytänteistä~\cite{DD08}. Scrum tarjoaa ketterälle kehitykselle toimivaksi osoitetun kehyksen ja XP 
 lukuisia ketterään kehitykseen soveltuvia ohjelmistokehityksen käytäntöjä. Scrum keskittyy lähinnä kehityksen 
 hallinnolliseen puoleen: miten ohjelmistokehitys tulee suunnitella, hallinnoida ja ajoittaa. Tästä syystä Scrum ja XP 
-tukevat hyvin toisiaan~\cite{Kn07}.
+tukevat toisiaan~\cite{Kn07}.
 
     Scrumissa yksittäisiä iteraatioita kutsutaan pyrähdyksiksi, eli sprinteiksi. Jokainen sprintti muodostuu yhdessä 
 asiakkaan kanssa valituista ja priorisoiduista ominaisuuksista tai parannuksista, joita kehittäjien tulee sen aikana 
@@ -687,15 +686,15 @@ mahdollisia ongelmia. XP:n käytännöt on nykyään sulautunut osaksi Scrumia~\
     Ketterää kehitystä on myös kritisoitu~\cite{DD08}. Huonosti toteutettu ketterä kehitys voi viedä huomion ohjelmiston 
 kokonaissuunnittelusta. Näin ollen ohjelmiston suunnitteluratkaisut saattavat jäädä pirstaleisiksi. Ketterä kehitys 
 sisältää paljon ideologiaa ja tutkimukset ovat suurelta osin vain empiirisiä. Ketterän kehityksen tuoman hyödyn 
-mittaaminen on siksi hyvin haasteellista. Yhdeksi kysymykseksi on nostettu ketterän kehitysprosessien soveltaminen 
-isoissa yrityksissä, koska käytänteiden soveltaminen on usein helpompaa pienemmissä kehitystiimeissä. Valtaosa 
-kehittäjistä jotka ovat kokeilleet ketterää kehitystä haluavat jatkaa sen käyttämistä.
+mittaaminen on siksi haasteellista. Yhdeksi kysymykseksi on nostettu ketterän kehitysprosessien soveltaminen isoissa 
+yrityksissä, koska käytänteiden soveltaminen on usein helpompaa pienemmissä kehitystiimeissä. Valtaosa kehittäjistä 
+jotka ovat kokeilleet ketterää kehitystä haluavat jatkaa sen käyttämistä.
 
     Useissa tutkimuksissa on pohdittu ristiriitoja kokeellisten ja empiiristen tutkimusten välillä~\cite{DD08, SS10}. 
-Kokeelliset tutkimukset ajoittuvat yleensä hyvin lyhyelle aikajaksolle kun taas empiiriset tutkimukset arvioivat 
-ajallisesti pidempää kehitysprosessia. Siksi kokeelliset tutkimukset päätyvät yleensä maltillisempiin tuloksiin ketterän 
-kehityksen hyödyistä. Empiiriset tutkimukset näkevät ketterien prosessien vahvan hyödyn, mutta ongelmaksi muodostuu 
-tulosten yleistäminen. Hyöty voidaan yleensä nähdä vain parannuksena ulkoiseen laatuun~\cite{SS10}.
+Kokeelliset tutkimukset ajoittuvat yleensä lyhyelle aikajaksolle kun taas empiiriset tutkimukset arvioivat ajallisesti 
+pidempää kehitysprosessia. Siksi kokeelliset tutkimukset päätyvät yleensä maltillisempiin tuloksiin ketterän kehityksen 
+hyödyistä. Empiiriset tutkimukset näkevät ketterien prosessien vahvan hyödyn, mutta ongelmaksi muodostuu tulosten 
+yleistäminen. Hyöty voidaan yleensä nähdä vain parannuksena ulkoiseen laatuun~\cite{SS10}.
 
 \subsection{Testilähtöinen kehitys}
 
@@ -753,7 +752,7 @@ komponentteihin on syytä varata enemmän aikaa että rahaa~\cite{BBM96, ZN08}. 
 testaus ja tarkastus ohjataan haastavimpiin osa-alueisiin. Johtajilla ei kuitenkaan ole aina tarvittavaa kokemusta tai 
 tietoa, joiden pohjalta he voisivat tehdä päätöksiä järkevästi. Siitä johtuen päätökset tehdään usein johtajien 
 odotusten mukaan ja tällöin he joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osaksi muodostuu johtajien 
-taito. On hyvin todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso kärsivät tästä.
+taito. On todennäköistä, että laadullisen arvioinnin tehokkuus ja vaatimustaso kärsivät tästä.
 
 \subsection{Kehittäjien tuki ja vastuun antaminen}
 
