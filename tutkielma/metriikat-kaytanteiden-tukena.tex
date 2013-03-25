@@ -50,11 +50,52 @@
 \date{\today}
 \level{Kandidaatintutkielma}
 
+\abstract
+{Ohjelmistot kehittyvät elinkaarensa aikana muun muassa uusien vaatimusten, optimisaatioiden, tietoturvaparannusten ja 
+virhekorjausten johdosta. Kehitysvaiheessa olevan ohjelmiston laadun varmistaminen on hankalaa. Ohjelmiston testaamisen 
+ja käytännössä havaittujen virheiden välillä on usein suuri kuilu. Virheiden määrää ei yleensä pystytä laskemaan 
+luotettavasti ennen kuin tuote on valmis ja julkaistu asiakkaalle. Tässä piilee kuitenkin ongelman ydin: virheiden 
+korjaaminen ohjelmiston julkaisun jälkeen on erittäin kallista.
+
+    Laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää 
+kehitystyötä. Ohjelmiston koodin tuottajana on ihminen, joten ohjelmiston laatuun kohdistuu inhimilliset tekijät. 
+Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelmiston kehitysvaiheissa. Ohjelmiston laatua voidaan arvioida 
+mekaanisilla metriikoilla, jotka pyrkivät arvioimaan ohjelmiston komponenttien laatua sekä havaitsemaan kriittiset osat 
+ohjelmistosta.
+
+    Metriikoita on lukuisia, näistä muutamia pinnalla olevia ovat koodikirnu, verkkoanalyysi, testikattavuus ja 
+mutaatiotestaus. Koodikirnulla arvioidaan ohjelmiston muutoksien vaikutusta ohjelmiston virheherkkyyteen, 
+verkkoanalyysillä tutkitaan ohjelmiston komponenttien riippuvuuksien vaikutusta ohjelmiston virhealttiuteen ja 
+testikattavuudella sekä mutaatiotestauksella analysoidaan ohjelmiston lähdekoodin testien tehokkuutta ja laadukkuutta.
+
+    Metriikoiden tulokset antavat lupaavia viitteitä niiden hyödystä ohjelmiston laadun varmistamisessa. Laadun 
+arvioimiseen ei ole kuitenkaan löytynyt yksittäistä ''parasta'' ratkaisua eikä metriikat sovellu yksinään laadun 
+arvioimiseen. Metriikoiden välillä on havaittavissa lukuisia yhtäläisyyksiä, joten suurin hyöty niistä saadaan 
+yhdessä kokonaisuutena. Laadun varmistaminen tulee kohdentaa metriikoiden paljastamiin kohteisiin ohjelmistossa.
+
+    Vaikka metriikoita on tutkittu jo pitkään, niiden täydellistä potentiaalia ei ole vieläkään valjastettu 
+käyttöön. Metriikat ovat perimmiltään vielä osittain tieteellisiä eikä niitä arvioivia kehittyneitä työkaluja ole 
+helposti saatavilla. Suurin hyöty niistä saadaan vasta kun ne saadaan jokaisen kehittäjän käsiin.
+
+    Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelmiston kaikissa kehitysvaiheissa, joten 
+ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulee ohjata laadukasta kehitystä. Lopulta laadukkaan 
+ohjelmiston tekee laadukkaat kehittäjät. Ulkoinen ja sisäinen laatu lähtee siitä, että ohjelmisto suunnitellaan, 
+toteutetaan ja testataan käyttäen hyväksi todettuja ohjelmointitapoja ja malleja.}
+
+\keywords{ohjelmistotuotanto, ohjelmiston laatu, laadulliset metriikat, laadulliset prosessit ja käytänteet}
+
+\classification
+{D.2.4 [Software Engineering]: Software/Program Verification\newline
+D.2.8 [Software Engineering]: Metrics\newline
+D.2.9 [Software Engineering]: Management\newline
+K.6.3 [Management of Computing and Information Systems]: Software Management}
+
 \begin{document}
 
 % --- Front matter ---
 
 \maketitle
+\makeabstract
 
 \tableofcontents
 \newpage
@@ -183,7 +224,7 @@ mutanttiversioita ohjelmistosta, joiden ei kuulu mennä testeistä läpi.
 \subsection{Koodin kehittäjänä ihminen}
 
 Laadun takeeksi ei voida luetella pelkästään mekaanisia laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri 
-laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. 
+laadullinen merkitys ohjelmiston kaikissa kehitysvaiheissa, joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. 
 Niiden tulee ohjata laadukasta kehitystä.
 
     Ennakkosuunniteluun pohjautuvien tuotantomenetelmien, kuten vesiputousmallin, rinnalle on noussut uusia ketterän 
@@ -390,9 +431,9 @@ virheilmoituksia korreloi näihin komponentteihin~\cite{ZN08}. Yksi syy on, ett�
 muita monimutkaisempia riippuvuuksiensa johdosta.
 
     Aikaisempien tutkimusten mukaan on havaittu, että koodikirnu ja riippuvuusverkot ovat yhdessä hyviä metriikoita 
-ohjelman virheherkkyyden arvioimisessa~\cite{NB07}. Jos yksittäinen komponentti muuttuu paljon eri versioiden välillä, 
-voidaan olettaa, että jonkun toisen komponentin täytyy muuttua, jotta muutokset ovat mahdollisia. Muutos yleensä leviää 
-riippuvuuksien välillä.
+ohjelmiston virheherkkyyden arvioimisessa~\cite{NB07}. Jos yksittäinen komponentti muuttuu paljon eri versioiden 
+välillä, voidaan olettaa, että jonkun toisen komponentin täytyy muuttua, jotta muutokset ovat mahdollisia. Muutos 
+yleensä leviää riippuvuuksien välillä.
 
     Riippuvuusverkossa näkyvät yhteydet ilmentävät kuinka paljon työtä tarvitaan yhteyksien ylläpitämiseen. Muutosten 
 määrän lisäksi yhteydet voivat kertoa virheherkkyydestä muutakin tärkeää tietoa. Lähdekoodi ei muodostu pelkästään 
@@ -824,7 +865,7 @@ muiden kehitystiimin jäsenten tietotaitoon liittyviä riskejä ja parannetaan n
 
     Vaikka metriikoita on tutkittu jo pitkään, niiden täydellistä potentiaalia ei ole vieläkään valjastettu 
 käyttöön~\cite{YH11}. Metriikat ovat perimmiltään vielä osittain tieteellisiä eikä niitä arvioivia kehittyneitä työkaluja 
-ole helposti saatavilla. Suurin hyöty niistä saadaan vasta kun ne saadaan jokaisen kehittäjän käsiin. 
+ole helposti saatavilla. Suurin hyöty niistä saadaan vasta kun ne saadaan jokaisen kehittäjän käsiin.
 
 \section{Yhteenveto}
 
@@ -848,9 +889,9 @@ testien laatua~\cite{YH11}. Alkuperäisen ohjelmiston lähdekoodin syntaksia muu
 tehokkuutta havaita mahdollisia virheitä ohjelmiston lähdekoodissa.
 
     Ohjelmiston koodin kehittäjänä on lopulta ihminen. Laadun takeeksi ei voida luetella pelkästään mekaanisia 
-laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelman kaikissa kehitysvaiheissa, 
-joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulee ohjata laadukasta kehitystä. Lopulta 
-laadukkaan ohjelmiston tekee laadukkaat kehittäjät. Ulkoinen ja sisäinen laatu lähtee siitä, että ohjelmisto 
+laatua arvioivia metriikoita. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelmiston kaikissa 
+kehitysvaiheissa, joten ohjelmistotuotantomenetelmät nousevat suureen rooliin. Niiden tulee ohjata laadukasta kehitystä. 
+Lopulta laadukkaan ohjelmiston tekee laadukkaat kehittäjät. Ulkoinen ja sisäinen laatu lähtee siitä, että ohjelmisto 
 suunnitellaan, toteutetaan ja testataan käyttäen hyväksi todettuja ohjelmointitapoja ja malleja.
 
     Raskaaseen ennakkosuunniteluun pohjautuvien tuotantomenetelmien, kuten vesiputousmallin, rinnalla on noussut uusia 
