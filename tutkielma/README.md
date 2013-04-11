@@ -1,27 +1,33 @@
 # Metriikat käytänteiden tukena ohjelmiston laadun arvioimisessa
 
-Ohjelmistot kehittyvät elinkaarensa aikana muun muassa uusien vaatimusten, optimisaatioiden, tietoturvaparannusten ja 
-virhekorjausten johdosta. Kehitysvaiheessa olevan ohjelmiston laadun varmistaminen on hankalaa 
-[BBM96, NB05, NB07, ZN08, MNDT09]. Ohjelmiston testaamisen ja käytännössä havaittujen virheiden välillä on usein suuri 
-kuilu. Virheiden määrää ei yleensä pystytä laskemaan luotettavasti ennen kuin tuote on valmis ja julkaistu asiakkaalle. 
-Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen ohjelmiston julkaisun jälkeen on erittäin kallista.
-
-Ohjelmiston kehittäminen on haastavaa. Vielä haastavampaa on kehittää laadukkaasti suunniteltu ja toteutettu ohjelmisto. 
-Käyttäjät havaitsevat laadun oikein toimivana tuotteena, mutta ennen kaikkea laadukas suunnittelu ja ohjelmointi 
-helpottaa kehitysprosessia. Ongelmien korjaamisen sijaan kehittäjät voivat keskittyä olennaiseen eli uusien 
-toiminnallisuuksien toteuttamiseen. Virheitä on mahdotonta välttää täysin.
-
-Laadun varmistamista rajaa ohjelmistokehityksessä henkilöt, aika ja raha [BBM96, ZN08]. Kehittäjät kohtaavat usein 
-tiukkoja määräaikoja ja rajallisia henkilöresursseja laadun takaamiseen. Johtajat käyttävät käytännössä pelkästään 
-omakohtaisia kokemuksiaan resurssien tehokkaaseen jakamiseen. Heillä ei läheskään aina ole tarvittavaa kokemusta tai 
-tietoa, joiden pohjalta he voivat tehdä järkeviä päätöksiä ohjelmiston laadun kannalta. Tästä johtuen päätökset tehdään 
-usein johtajien odotusten mukaan ja näin ollen he joutuvat arvioimaan laatua puutteellisin tiedoin. Kriittiseksi osaksi 
-muodostuu siksi kehittäjien taitojen lisäksi johtajien taidot.
+Ohjelmistojen elinkaari on uusien vaatimusten, korjausten ja parannusten vuoksi erittäin pitkä. Kehitystyön ohella 
+laadun arvioiminen ja varmistaminen on haasteellista. Testauksella ei usein havaita mahdollisia virheitä, jotka tulevat 
+esille vasta ohjelmiston julkaisun jälkeen. Virheiden määrä pystytään laskemaan luotettavasti kun tuote on valmis ja 
+toimitettu käyttäjille. Tässä piilee kuitenkin ongelman ydin: virheiden korjaaminen ohjelmiston julkaisun jälkeen on 
+erittäin kallista.
 
 Laadun varmistaminen ja mahdollisten ongelmakohtien havaitseminen mahdollisimman aikaisessa vaiheessa hyödyttää 
-kehitystyötä [BBM96, NB05]. Ohjelmiston koodin tuottajana on ihminen, joten ohjelmiston laatuun kohdistuu inhimilliset 
-tekijät. Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelmiston kehitysvaiheissa. Ohjelmiston laatua voidaan 
-arvioida mekaanisilla metriikoilla, jotka pyrkivät arvioimaan ohjelmiston komponenttien laatua sekä havaitsemaan 
-kriittiset osat ohjelmistosta.
+kehitystyötä. Ohjelmiston koodin kehittäjänä on ihminen, joten ohjelmiston laatuun kohdistuu inhimillisiä tekijöitä. 
+Kehittäjän käytänteillä on suuri laadullinen merkitys ohjelmiston kehitysvaiheissa. Ohjelmiston laatua voidaan tutkia 
+mekaanisilla metriikoilla, joiden tehtävänä on arvioida ohjelmiston komponentteja sekä pystyä havaitsemaan ohjelmiston 
+kriittiset osa-alueet.
 
-> [BBM96, NB05, NB07, ZN08, MNDT09] Katso lähteet.
+Metriikoita on lukuisia, näistä muutamia tutkimuksissa hyödyllisiksi havaittuja ovat koodikirnu, verkkoanalyysi, 
+testikattavuus ja mutaatiotestaus. Koodikirnulla arvioidaan ohjelmiston muutoksien vaikutusta ohjelmiston 
+virheherkkyyteen. Verkkoanalyysillä tutkitaan ohjelmiston komponenttien riippuvuuksien vaikutusta ohjelmiston 
+virhealttiuteen. Testikattavuudella ja mutaatiotestauksella analysoidaan ohjelmiston lähdekoodin testien tehokkuutta 
+sekä laadukkuutta.
+
+Metriikoista tehdyt tutkimukset antavat lupaavia viitteitä niiden hyödystä ohjelmiston laadun varmistamisessa. Tähän ei 
+ole kuitenkaan löytynyt yhtä ''parasta'' ratkaisua eivätkä metriikat sovellu yksinään laadun tutkimiseen. Metriikoiden 
+välillä on havaittavissa lukuisia yhtäläisyyksiä ja siksi metriikat tukevat toisiaan hyvin. Yksittäiset metriikat 
+paljastavat vain osatotuuden ohjelmiston laadusta. Laadun varmistaminen tulee kohdentaa metriikoiden havaitsemiin 
+virhealttiisiin kohteisiin ohjelmistossa.
+
+Metriikoita on tutkittu jo pitkään, mutta tutkimustuloksia ei ole osattu hyödyntää täydellisesti. Metriikat ovat 
+perimmiltään vielä pitkälti teoreettisia eikä niitä arvioivia kehittyneitä työkaluja ole helposti saatavilla. Työkaluja
+pitää kehittää ja ne tulee saada osaksi kehitysprosessia.
+
+Ohjelmistotuotantomenetelmillä on suuri merkitys laadukkaan kehitysprosessin osana. Ohjelmistokehittäjät vastaavat 
+laadukkaan ohjelmiston kehityksen lopputuloksesta. Ulkoinen ja sisäinen laatu pohjautuu siihen, miten ohjelmisto 
+suunnitellaan, toteutetaan ja testataan käyttäen hyväksi todettuja ohjelmointitapoja ja malleja.
