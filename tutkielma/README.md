@@ -19,7 +19,7 @@ virhealttiuteen. Testikattavuudella ja mutaatiotestauksella analysoidaan ohjelmi
 sekä laadukkuutta.
 
 Metriikoista tehdyt tutkimukset antavat lupaavia viitteitä niiden hyödystä ohjelmiston laadun varmistamisessa. Tähän ei 
-ole kuitenkaan löytynyt yhtä ''parasta'' ratkaisua eivätkä metriikat sovellu yksinään laadun tutkimiseen. Metriikoiden 
+ole kuitenkaan löytynyt yhtä "parasta" ratkaisua eivätkä metriikat sovellu yksinään laadun tutkimiseen. Metriikoiden 
 välillä on havaittavissa lukuisia yhtäläisyyksiä ja siksi metriikat tukevat toisiaan hyvin. Yksittäiset metriikat 
 paljastavat vain osatotuuden ohjelmiston laadusta. Laadun varmistaminen tulee kohdentaa metriikoiden havaitsemiin 
 virhealttiisiin kohteisiin ohjelmistossa.
