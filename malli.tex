@@ -55,21 +55,36 @@
 
 % --- Front matter ---
 
+\frontmatter
+
 \maketitle
+\setcounter{page}{2}
 \makeabstract
 
 \tableofcontents
-\newpage
 
 % --- Main matter ---
+
+\mainmatter
 
 \section{Otsikko}
 
 Esimerkkilause ja lähdeviite~\cite{NB05}.
 
-% --- Back matter ---
+\newpage
+
+% --- References ---
 
 \bibliographystyle{babalpha-lf}
 \bibliography{lahteet}
+
+% --- Appendices ---
+
+% uncomment the following
+
+% \newpage
+% \appendix
+%
+% \section{Liite}
 
 \end{document}
